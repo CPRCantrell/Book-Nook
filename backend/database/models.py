@@ -25,7 +25,7 @@ class Car(db.Model):
     model = db.Column(db.String(255), nullable=False)
     year = db.Column(db.Integer)
     # Adds user_id as an Integer column on the car table which references the id column on user table
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_username=db.Column(db.String, db.ForeignKey('user.username'))
     # Establishes object relation between car-user so we can grab values like car.user.username
     user = db.relationship("User")
 
