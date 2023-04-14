@@ -10,13 +10,13 @@
 			"name": "Authenticate",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Login",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"BillBob123\",\r\n    \"password\": \"P@ssword\"\r\n}",
+							"raw": "{\r\n    \"username\": \"BlazeChris\",\r\n    \"password\": \"P@ssword\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,13 +43,13 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Register New User",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"BillBob123\",\r\n    \"password\": \"P@ssword\",\r\n    \"first_name\": \"Bill\",\r\n    \"last_name\": \"Bob\",\r\n    \"email\": \"BillBob@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"BlazeChris\",\r\n    \"password\": \"P@ssword\",\r\n    \"first_name\": \"Blaze\",\r\n    \"last_name\": \"Chris\",\r\n    \"email\": \"BlazeChris@yahoo.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,12 +88,18 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwNDUyOCwianRpIjoiNGNhMzAxMDUtMmZlZi00MTE5LTgzODUtMjY1ODkxOThlMGYwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJpbGxib2IxMjMiLCJuYmYiOjE2ODE1MDQ1MjgsImV4cCI6MTY4MjEwOTMyOCwidXNlcm5hbWUiOiJiaWxsYm9iMTIzIn0.HVW3fzelTZlla9l5VFEZ_puZ-HvLNHClAPiyQ8T8mtg",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwOTUxNywianRpIjoiNjFmYzJiZDItZGZlZi00ZTAwLTgxZjktOTcxYzMwOTQzOWUyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJsYXplY2hyaXMiLCJuYmYiOjE2ODE1MDk1MTcsImV4cCI6MTY4MjExNDMxNywidXNlcm5hbWUiOiJibGF6ZWNocmlzIn0.9Za5BEKbEKLVDcQDyLsvB7_CRdMP2TWz2eLHRHoJ9ag",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"book_id\": \"Postman Test Run not favorite\",\r\n    \"review_text\": \"This is a cool test run part 2\",\r\n    \"rating\": 5\r\n}",
+							"raw": "{\r\n    \"book_id\": \"Postman Test Run Not Favorite\",\r\n    \"review_text\": \"This is a cool test run part 2\",\r\n    \"rating\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
