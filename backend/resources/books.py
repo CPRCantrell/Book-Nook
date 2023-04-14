@@ -37,15 +37,15 @@ class GetBookInfo(Resource):
         # Alternate version where JWT is used, but not required
         book_id = book_id.replace('-', ' ')
         all_reviews = Reviews.query.filter_by(book_id=book_id)
-        reviews=[]
-        ratings=[]
-        for review in all_reviews:
-            reviews.append(review.review_text)
-            ratings.append(review.rating)
-        average_rating=(sum(ratings))/len(ratings)
+
+        all_reviews = reviews_schema.dump(all_reviews)
+        print(all_reviews)
+        all_ratings = [rev['rating'] for rev in all_reviews]
+        avg_rating = sum(all_ratings)/len(all_ratings)
+
         json={
-            "reviews":reviews,
-            "rating":average_rating
+            "reviews": all_reviews,
+            "average_rating": avg_rating
         }
         try:
             verify_jwt_in_request()
