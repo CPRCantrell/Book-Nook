@@ -5,7 +5,6 @@ from database.models import db, Reviews,FavoriteBooks
 from database.schemas import review_schema,reviews_schema,favorite_books_schema,favorite_book_schema
 
 class UserReviews(Resource):
-
     @jwt_required()
     def post(self):
         user_id = get_jwt_identity()
@@ -17,7 +16,6 @@ class UserReviews(Resource):
         return review_schema.dump(new_review), 201
 
 class UserFavorites(Resource):
-
     @jwt_required()
     def post(self):
         user_id = get_jwt_identity()
