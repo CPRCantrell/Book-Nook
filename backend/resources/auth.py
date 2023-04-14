@@ -13,6 +13,7 @@ class RegisterResource(Resource):
         form_data = request.get_json()
         try:
             new_user = register_schema.load(form_data)
+            new_user.username = new_user.username.lower()
             new_user.hash_password()
             db.session.add(new_user)
             db.session.commit()
@@ -32,11 +33,8 @@ class LoginResource(Resource):
         if not authorized:
             return {'error': 'Username or password invalid'}, 401
         expires = datetime.timedelta(days=7)
-        print(user.id)
         additional_claims = {
-            'id': user.id,
-            'username': user.username,
-            'first_name': user.first_name
+            'username': user.username
         }
-        access_token = create_access_token(identity=str(user.id), additional_claims=additional_claims, expires_delta=expires)
+        access_token = create_access_token(identity=user.username, additional_claims=additional_claims, expires_delta=expires)
         return {'access': access_token}, 200

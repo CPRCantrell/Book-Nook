@@ -8,6 +8,7 @@ from database.models import db
 from database.schemas import ma
 from resources.auth import LoginResource, RegisterResource
 from resources.cars import AllCarResource, UserCarResource
+from resources.books import UserReviews, UserFavorites, GetBookInfo
 from dotenv import load_dotenv
 from os import environ
 
@@ -56,5 +57,8 @@ def create_routes():
     api.add_resource(AllCarResource, '/api/cars')
     api.add_resource(UserCarResource, '/api/user_cars')
     # TODO: Create files for your Resources in resources folder, add them here
-    
+    api.add_resource(UserReviews, '/api/book/review')
+    api.add_resource(UserFavorites, '/api/book/favorite')
+    api.add_resource(GetBookInfo, '/api/book/info/<string:book_id>')
+
     return api

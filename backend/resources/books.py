@@ -10,7 +10,7 @@ class UserReviews(Resource):
     def post(self):
         user_id = get_jwt_identity()
         form_data = request.get_json()
-        new_review=review_schema(form_data)
+        new_review=review_schema.load(form_data)
         new_review.user_username=user_id
         db.session.add(new_review)
         db.session.commit()
@@ -22,7 +22,7 @@ class UserFavorites(Resource):
     def post(self):
         user_id = get_jwt_identity()
         form_data = request.get_json()
-        new_favorite=favorite_book_schema(form_data)
+        new_favorite=favorite_book_schema.load(form_data)
         new_favorite.user_username=user_id
         db.session.add(new_favorite)
         db.session.commit()
@@ -31,12 +31,13 @@ class UserFavorites(Resource):
     @jwt_required()
     def get(self):
         user_id = get_jwt_identity()
-        user_favorites = FavoriteBooks.query.filter_by(user_id=user_id)
+        user_favorites = FavoriteBooks.query.filter_by(user_username=user_id)
         return favorite_books_schema.dump(user_favorites), 200
 
 class GetBookInfo(Resource):
     def get(self,book_id):
         # Alternate version where JWT is used, but not required
+        book_id = book_id.replace('-', ' ')
         all_reviews = Reviews.query.filter_by(book_id=book_id)
         reviews=[]
         ratings=[]
@@ -51,20 +52,21 @@ class GetBookInfo(Resource):
         try:
             verify_jwt_in_request()
             user_id = get_jwt_identity()
-            favorited_book=db.session.query(FavoriteBooks).filter(
+            test = db.session.query(FavoriteBooks).filter(
                 FavoriteBooks.user_username.like(user_id),
                 FavoriteBooks.book_id.like(book_id)
-            )[0]
-            if favorited_book:
-                json["favorited"]=True
-            else:  
-                json["favorited"]=False
+            ).first()
 
-        
+            if test:
+                json["favorited"] = True
+            else:
+                json["favorited"] = False
+
+
         except:
             json["favorited"]="not_logged_in"
-        
+
         return json, 200
-    
-    
+
+
 

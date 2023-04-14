@@ -9,19 +9,18 @@ class RegisterSchema(ma.Schema):
     """
     Schema used for registration, includes password
     """
-    id = fields.Integer(primary_key=True)
-    username = fields.String(required=True)
+    username = fields.String(primary_key=True)
     password = fields.String(required=True)
     first_name = fields.String(required=True)
     last_name = fields.String(required=True)
     email = fields.String(required=True)
     class Meta:
-        fields = ("id", "username",  "password", "first_name", "last_name", "email")
+        fields = ("username",  "password", "first_name", "last_name", "email")
 
     @post_load
     def create_user(self, data, **kwargs):
         return User(**data)
-    
+
 class UserSchema(ma.Schema):
     """
     Schema used for displaying users, does NOT include password
@@ -49,7 +48,7 @@ class CarSchema(ma.Schema):
     user = ma.Nested(UserSchema, many=False)
     class Meta:
         fields = ("id", "make", "model", "year", "user_id", "user")
-    
+
     @post_load
     def create_car(self, data, **kwargs):
         return Car(**data)
@@ -68,7 +67,7 @@ class ReviewSchema(ma.Schema):
     user=ma.Nested(UserSchema, many=False)
     class Meta:
         fields = ("id", "book_id", "review_text", "rating", "user_username", "user")
-    
+
     @post_load
     def create_review(self, data, **kwargs):
         return Reviews(**data)
@@ -85,7 +84,7 @@ class FavoriteBookSchema(ma.Schema):
     user=ma.Nested(UserSchema, many=False)
     class Meta:
         fields = ("id", "book_id", "title", "thumbnail_url", "user_username", "user")
-    
+
     @post_load
     def create_favorite_book(self, data, **kwargs):
         return FavoriteBooks(**data)
