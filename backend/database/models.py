@@ -32,16 +32,16 @@ class Car(db.Model):
 # TODO: Add your models below, remember to add a new migration and upgrade database
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_id=db.Column(db.String(255), nullable=False)
-    review_text=db.Column(db.String(255), nullable=False)
-    rating=db.Column(db.Integer, nullable=False)
-    user_username=db.Column(db.String(255), db.ForeignKey('user.username'))
+    book_id = db.Column(db.String(255), nullable=False)
+    review_text = db.Column(db.String(255), nullable=False)
+    rating = db.Column(db.Integer, nullable=False)
+    user_username = db.Column(db.String(255), db.ForeignKey('user.username'))
     user = db.relationship("User")
 
 class FavoriteBooks(db.Model):
-    id =db.Column(db.Integer, primary_key=True)
-    book_id=db.Column(db.String(255), nullable=False)
-    title=db.Column(db.String(255), nullable=False)
-    thumbnail_url=db.Column(db.String(255), nullable=False)
-    user_username=db.Column(db.String(255), db.ForeignKey('user.username'))
+    id = db.Column(db.Integer, primary_key=True)
+    book_id = db.Column(db.String(255), nullable=False)
+    title = db.Column(db.String(255), nullable=False)
+    thumbnail_url = db.Column(db.String(255), nullable=False)
+    user_username = db.Column(db.String(255), db.ForeignKey('user.username'))
     user = db.relationship("User")
