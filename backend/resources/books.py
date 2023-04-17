@@ -3,7 +3,8 @@ from flask_jwt_extended import jwt_required, get_jwt_identity, verify_jwt_in_req
 from flask_restful import Resource
 from database.models import db, Reviews,FavoriteBooks
 from database.schemas import review_schema,reviews_schema,favorite_books_schema,favorite_book_schema
-from sqlalchemy import and_,delete,update
+from sqlalchemy import and_, delete
+
 class UserReviews(Resource):
     @jwt_required()
     def post(self):
@@ -14,7 +15,7 @@ class UserReviews(Resource):
         db.session.add(new_review)
         db.session.commit()
         return review_schema.dump(new_review), 201
-    
+
     @jwt_required()
     def delete(self):
         user_id = get_jwt_identity()
@@ -26,14 +27,9 @@ class UserReviews(Resource):
             delete(Reviews).
             where(and_(Reviews.book_id==book_id,Reviews.user_username==user_id))
         )
-    
-        
-
         db.session.execute(stmt)
-
-        
         return '',200
-    
+
     @jwt_required()
     def put(self):
         user_id = get_jwt_identity()
