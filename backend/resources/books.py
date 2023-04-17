@@ -3,7 +3,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity, verify_jwt_in_req
 from flask_restful import Resource
 from database.models import db, Reviews,FavoriteBooks
 from database.schemas import review_schema,reviews_schema,favorite_books_schema,favorite_book_schema
-
+from sqlalchemy import and_,delete,update
 class UserReviews(Resource):
     @jwt_required()
     def post(self):
@@ -19,18 +19,31 @@ class UserReviews(Resource):
     def delete(self):
         user_id = get_jwt_identity()
         book_id = request.form.get('book_id')
-        review = db.session.query(Reviews).filter(
-                Reviews.user_username.like(user_id),
-                Reviews.book_id.like(book_id)
-            )
-        print(review)
-        review=review_schema.load(review)
-        print(review)
-        db.session.delete(review)
-        db.session.commit()
-        return review,204
-   
+        # review=Reviews.query.get((book_id,user_id))
+        # db.session.delete(review)
+        # db.session.commit()
+        stmt=(
+            delete(Reviews).
+            where(and_(Reviews.book_id==book_id,Reviews.user_username==user_id))
+        )
     
+        
+
+        db.session.execute(stmt)
+
+        
+        return '',200
+    
+    @jwt_required()
+    def put(self):
+        user_id = get_jwt_identity()
+        form_data = request.get_json()
+        print(form_data)
+        review=Reviews.query.get((form_data['book_id'],user_id))
+        review.review_text=form_data['review_text']
+        review.rating=form_data['rating']
+        db.session.commit()
+        return review_schema.dump(review),200
 class UserFavorites(Resource):
     @jwt_required()
     def post(self):
