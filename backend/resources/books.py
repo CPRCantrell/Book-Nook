@@ -14,7 +14,23 @@ class UserReviews(Resource):
         db.session.add(new_review)
         db.session.commit()
         return review_schema.dump(new_review), 201
-
+    
+    @jwt_required()
+    def delete(self):
+        user_id = get_jwt_identity()
+        book_id = request.form.get('book_id')
+        review = db.session.query(Reviews).filter(
+                Reviews.user_username.like(user_id),
+                Reviews.book_id.like(book_id)
+            )
+        print(review)
+        review=review_schema.load(review)
+        print(review)
+        db.session.delete(review)
+        db.session.commit()
+        return review,204
+   
+    
 class UserFavorites(Resource):
     @jwt_required()
     def post(self):
@@ -50,12 +66,12 @@ class GetBookInfo(Resource):
         try:
             verify_jwt_in_request()
             user_id = get_jwt_identity()
-            test = db.session.query(FavoriteBooks).filter(
+            favorited_book = db.session.query(FavoriteBooks).filter(
                 FavoriteBooks.user_username.like(user_id),
                 FavoriteBooks.book_id.like(book_id)
             ).first()
 
-            if test:
+            if favorited_book:
                 json["favorited"] = True
             else:
                 json["favorited"] = False
