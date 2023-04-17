@@ -28,6 +28,7 @@ class UserReviews(Resource):
             where(and_(Reviews.book_id==book_id,Reviews.user_username==user_id))
         )
         db.session.execute(stmt)
+        db.session.commit()
         return '',200
 
     @jwt_required()
@@ -40,6 +41,7 @@ class UserReviews(Resource):
         review.rating=form_data['rating']
         db.session.commit()
         return review_schema.dump(review),200
+
 class UserFavorites(Resource):
     @jwt_required()
     def post(self):

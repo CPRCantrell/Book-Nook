@@ -81,7 +81,7 @@
 			"name": "Books",
 			"item": [
 				{
-					"name": "UserReview",
+					"name": "User Review",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -99,7 +99,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"book_id\": \"Postman Test Run Not Favorite\",\r\n    \"review_text\": \"This is a cool test run part 2\",\r\n    \"rating\": 5\r\n}",
+							"raw": "{\r\n    \"book_id\": \"Postman Test Run Not Favorite\",\r\n    \"review_text\": \"This is a cool test run part 2\",\r\n    \"rating\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,7 +202,8 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwNDUyOCwianRpIjoiNGNhMzAxMDUtMmZlZi00MTE5LTgzODUtMjY1ODkxOThlMGYwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJpbGxib2IxMjMiLCJuYmYiOjE2ODE1MDQ1MjgsImV4cCI6MTY4MjEwOTMyOCwidXNlcm5hbWUiOiJiaWxsYm9iMTIzIn0.HVW3fzelTZlla9l5VFEZ_puZ-HvLNHClAPiyQ8T8mtg",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -220,6 +221,97 @@
 								"book",
 								"info",
 								"Postman-Test-Run-not-favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwNDUyOCwianRpIjoiNGNhMzAxMDUtMmZlZi00MTE5LTgzODUtMjY1ODkxOThlMGYwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJpbGxib2IxMjMiLCJuYmYiOjE2ODE1MDQ1MjgsImV4cCI6MTY4MjEwOTMyOCwidXNlcm5hbWUiOiJiaWxsYm9iMTIzIn0.HVW3fzelTZlla9l5VFEZ_puZ-HvLNHClAPiyQ8T8mtg",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwOTUxNywianRpIjoiNjFmYzJiZDItZGZlZi00ZTAwLTgxZjktOTcxYzMwOTQzOWUyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJsYXplY2hyaXMiLCJuYmYiOjE2ODE1MDk1MTcsImV4cCI6MTY4MjExNDMxNywidXNlcm5hbWUiOiJibGF6ZWNocmlzIn0.9Za5BEKbEKLVDcQDyLsvB7_CRdMP2TWz2eLHRHoJ9ag",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_id",
+									"value": "Postman Test Run Not Favorite",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/book/review",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"book",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwNDUyOCwianRpIjoiNGNhMzAxMDUtMmZlZi00MTE5LTgzODUtMjY1ODkxOThlMGYwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJpbGxib2IxMjMiLCJuYmYiOjE2ODE1MDQ1MjgsImV4cCI6MTY4MjEwOTMyOCwidXNlcm5hbWUiOiJiaWxsYm9iMTIzIn0.HVW3fzelTZlla9l5VFEZ_puZ-HvLNHClAPiyQ8T8mtg",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTUwOTUxNywianRpIjoiNjFmYzJiZDItZGZlZi00ZTAwLTgxZjktOTcxYzMwOTQzOWUyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJsYXplY2hyaXMiLCJuYmYiOjE2ODE1MDk1MTcsImV4cCI6MTY4MjExNDMxNywidXNlcm5hbWUiOiJibGF6ZWNocmlzIn0.9Za5BEKbEKLVDcQDyLsvB7_CRdMP2TWz2eLHRHoJ9ag",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": \"Postman Test Run Not Favorite\",\r\n    \"review_text\": \"This was changed\",\r\n    \"rating\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/book/review",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"book",
+								"review"
 							]
 						}
 					},
