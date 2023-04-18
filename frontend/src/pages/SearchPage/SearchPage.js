@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import SearchArea from '../../components/Search/SearchArea';
+import './SearchPage.css'
 
 const SearchPage = () => {
+
+    const [booksResults, setBooksResults] = useState([]);
+
     return(
-        <div>
-            <h1 style={{fontSize: "20rem"}}> This is working </h1>
-        </div>
+        <main className='content'>
+            <SearchArea setBookResults={setBooksResults}/>
+        </main>
     )
 }
 

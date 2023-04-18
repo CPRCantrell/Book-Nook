@@ -1,0 +1,13 @@
+.search-area{
+    width: 75%;
+    margin-inline: auto;
+    margin-top: 50px;
+    padding: 25px 50px;
+    background-color: var(--dark-background-color);
+    border-radius: 5px;
+}
+
+.search-bar input,
+.search-bar button{
+    font-size: 1.8rem;
+}
