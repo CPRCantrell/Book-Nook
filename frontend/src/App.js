@@ -19,6 +19,8 @@ function App() {
     <div className="app-background">
       <Navbar/>
       <Routes>
+        <Route path="home" element={<HomePage />}/>
+        <Route path="search" element={<searchPage />}/>
         {/* <Route
           path="/"
           element={
