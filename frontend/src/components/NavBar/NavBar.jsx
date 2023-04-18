@@ -5,13 +5,17 @@ import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
 
 const Navbar = () => {
+
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
+
   return (
     <div className="nav-bar">
-      <div className="profile-space">
-        Work on later
-      </div>
+      <Link to="/profile" className="link">
+        <div className="profile-space">
+          profile
+        </div>
+      </Link>
 
       <Link to="/" className="link">
         <button className="nav-button">
