@@ -7,7 +7,17 @@
     border-radius: 5px;
 }
 
-.search-bar input,
-.search-bar button{
+.search-area{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-area .search-bar input,
+.search-area .search-bar button,
+.search-area button{
     font-size: 1.8rem;
+    border:none;
+    border-radius: none;
+    outline: none;
+    padding: 1rem 5rem;
 }
