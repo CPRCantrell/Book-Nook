@@ -5,12 +5,12 @@ import axios from 'axios'
 
 const SearchArea = ({setBookResults}) => {
 
-    const lookFor = useRef('')
+    const lookFor = useRef()
     async function results(searchRequest){
         try{
             let books = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchRequest}`)
-            console.log(books)
-            setBookResults(books)
+            console.log(books.data.items)
+            setBookResults(books.data.items)
         }catch(ex){
             console.log('error in handleSubmit')
         }
@@ -18,7 +18,7 @@ const SearchArea = ({setBookResults}) => {
 
     function handleSubmit(event){
         event.preventDefault()
-        let searchFor = lookFor.target.value.replace(' ','+')
+        let searchFor = lookFor.current.value.replace(' ','+')
         results(searchFor)
 
     }
