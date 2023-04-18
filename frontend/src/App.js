@@ -4,6 +4,7 @@ import "./App.css";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
@@ -20,7 +21,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="home" element={<HomePage />}/>
-        <Route path="search" element={<searchPage />}/>
+        <Route path="search" element={<SearchPage />}/>
         {/* <Route
           path="/"
           element={
