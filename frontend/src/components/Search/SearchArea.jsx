@@ -6,10 +6,21 @@ import axios from 'axios'
 const SearchArea = ({setBookResults}) => {
 
     const lookFor = useRef('')
+    async function results(searchRequest){
+        try{
+            let books = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchRequest}`)
+            console.log(books)
+            setBookResults(books)
+        }catch(ex){
+            console.log('error in handleSubmit')
+        }
+    }
 
     function handleSubmit(event){
         event.preventDefault()
         let searchFor = lookFor.target.value.replace(' ','+')
+        results(searchFor)
+
     }
 
     return (
