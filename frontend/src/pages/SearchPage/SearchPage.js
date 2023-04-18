@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const SearchPage = () => {
     return(
         <div>
-            <h1 style={"font-size: 20rem"}> This is working </h1>
+            <h1 style={{fontSize: "20rem"}}> This is working </h1>
         </div>
     )
 }
