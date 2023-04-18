@@ -16,10 +16,10 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <div className="app-background">
+      <Navbar/>
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <PrivateRoute>
@@ -28,7 +28,7 @@ function App() {
           }
         />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} /> */}
       </Routes>
       <Footer />
     </div>
