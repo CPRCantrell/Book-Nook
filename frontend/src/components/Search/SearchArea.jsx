@@ -15,8 +15,8 @@ const SearchArea = ({setBookResults}) => {
     return (
         <div className="search-area">
             <form className="search-bar" onSubmit={e => handleSubmit(e)}>
-                <input type='text' ref={lookFor} placeholder="Search"/>
                 <button type="submit">Search</button>
+                <input type='text' ref={lookFor} placeholder="Search"/>
             </form>
             <button className="filter">Filter</button>
         </div>
