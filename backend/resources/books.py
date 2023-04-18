@@ -35,7 +35,6 @@ class UserReviews(Resource):
     def put(self):
         user_id = get_jwt_identity()
         form_data = request.get_json()
-        print(form_data)
         review=Reviews.query.get((form_data['book_id'],user_id))
         review.review_text=form_data['review_text']
         review.rating=form_data['rating']
