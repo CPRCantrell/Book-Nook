@@ -45,3 +45,7 @@ html {
   overflow: hidden;
   background-image: linear-gradient(to right, #13172D, #002E73);
 }
+
+main{
+  margin-left: 350px;
+}

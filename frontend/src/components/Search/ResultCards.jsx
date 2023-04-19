@@ -1,18 +1,31 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import defaultCover from '../../Assests/default-book-cover.jpg'
 import './ResultCards.css'
 
 const ResultCards = ({bookResults}) => {
+
+    function checkForImg(data){
+        if(data.imageLinks){
+            return(data.imageLinks.thumbnail)
+        }
+
+        return(defaultCover)
+    }
+
     return (
         <div className='results'>
             {bookResults.map((book) => {
                 return(
-                    <div className='card'>
-                        <img src={book.volumeInfo.imageLinks.thumbnail} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
-                        <div className='info'>
-                            <h2>{book.volumeInfo.title}</h2>
-                            <p>{book.volumeInfo.description}</p>
+                    <Link to={`/search/${book.id}`}>
+                        <div className='card'>
+                            <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
+                            <div className='info'>
+                                <h2>{book.volumeInfo.title}</h2>
+                                <p>{book.volumeInfo.description}</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 )
             })}
         </div>

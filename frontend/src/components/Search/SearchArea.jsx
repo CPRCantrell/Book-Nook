@@ -9,7 +9,7 @@ const SearchArea = ({setBookResults, setFilterMenu, filter}) => {
     const lookFor = useRef()
     async function results(searchRequest){
         try{
-            let books = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchRequest}`)
+            let books = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchRequest}&maxResults=40`)
             console.log(books.data.items)
             setBookResults(books.data.items)
         }catch(ex){

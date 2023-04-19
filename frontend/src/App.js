@@ -5,6 +5,7 @@ import "./App.css";
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import BookDetailPage from "./pages/BookDetailPage/BookDetailPage"
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
@@ -20,8 +21,9 @@ function App() {
     <div className="app-background">
       <Navbar/>
       <Routes>
-        <Route path="home" element={<HomePage />}/>
-        <Route path="search" element={<SearchPage />}/>
+        <Route path="/home" element={<HomePage />}/>
+        <Route path="/search" element={<SearchPage />}/>
+          <Route path='/:bookId' element={<BookDetailPage />} />
         {/* <Route
           path="/"
           element={
