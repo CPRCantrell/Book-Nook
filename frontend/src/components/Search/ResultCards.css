@@ -5,6 +5,7 @@
     grid-template-columns: repeat(2, auto);
     column-gap: 50px;
     row-gap: 100px;
+    padding-block: 100px;
 }
 
 .card{
