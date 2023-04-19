@@ -44,18 +44,30 @@ input:placeholder-shown{
     border: none;
 }
 
-.search-area button:hover,
+.search-area .off-filter:hover,
 .search-bar input:hover,
 .search-bar input:focus,
 input:not(:placeholder-shown){
     border-bottom: var(--border-effect);
 }
 
-.search-area button img:hover{
-    animation: search infinite ease-in-out alternate 750ms ;
+.search-area button:hover img{
+    animation: search infinite ease-in-out alternate 500ms ;
+    cursor: pointer;
 }
 
 @keyframes search{
     0%{transform: rotate(10deg);}
     100%{transform: rotate(-5deg);}
+}
+
+.search-area .on-filter,
+.search-area .off-filter{
+    padding: .5rem 1rem;
+}
+
+.search-area .on-filter{
+    opacity: 30%;
+    border: var(--border-effect);
+    border-radius: 5px;
 }

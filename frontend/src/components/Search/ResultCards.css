@@ -1,0 +1,35 @@
+.results{
+    width: 75%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 50px;
+    row-gap: 100px;
+}
+
+.card{
+    background-color: var(--dark-background-color);
+    border-radius: 5px;
+    display: flex;
+    gap: 25px;
+    height: 200px;
+}
+
+.card .info{
+    height: 100%;
+    color: var(--text-light-color);
+    display: grid;
+    gap: 10px;
+}
+
+.card .info h2{
+    font-size: var(--m-text);
+}
+
+.card .info p{
+    height: 100%;
+    display: flex;
+    font-size: var(--xsm-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
