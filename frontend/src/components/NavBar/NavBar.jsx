@@ -6,16 +6,28 @@ import "./NavBar.css";
 
 const Navbar = () => {
 
-  const { logoutUser, user } = useContext(AuthContext);
+  const { logoutUser , user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   return (
     <div className="nav-bar">
-      <Link to="/profile" className="link">
-        <div className="profile-space">
-          profile
-        </div>
-      </Link>
+      {user?
+      <div className="profile-space">
+        <Link to="/profile" className="link">
+          <button>profile</button>
+        </Link>
+        <button onClick={logoutUser}>log-out</button>
+      </div>
+      :
+      <div className="profile-space">
+        <Link to="/login" className="link">
+          <button>Log-in</button>
+        </Link>
+        <Link to="/register" className="link">
+          <button>Sign-up</button>
+        </Link>
+      </div>
+      }
 
       <Link to="/home" className="link">
         <button className="nav-button">

@@ -11,7 +11,6 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -24,16 +23,8 @@ function App() {
         <Route path="home" element={<HomePage />}/>
         <Route path="search" element={<SearchPage />}/>
         <Route path='detail/:bookId' element={<BookDetailPage />} />
-        {/* <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <HomePage />
-            </PrivateRoute>
-          }
-        />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} /> */}
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>
   );

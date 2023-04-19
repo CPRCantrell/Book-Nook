@@ -91,6 +91,3 @@ class GetBookInfo(Resource):
             json["favorited"]="not_logged_in"
 
         return json, 200
-
-
-
