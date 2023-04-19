@@ -21,9 +21,9 @@ function App() {
     <div className="app-background">
       <Navbar/>
       <Routes>
-        <Route path="/home" element={<HomePage />}/>
-        <Route path="/search" element={<SearchPage />}/>
-          <Route path='/:bookId' element={<BookDetailPage />} />
+        <Route path="home" element={<HomePage />}/>
+        <Route path="search" element={<SearchPage />}/>
+          <Route path=':bookId' element={<BookDetailPage />} />
         {/* <Route
           path="/"
           element={
