@@ -24,6 +24,7 @@ const BookDetailPage = () => {
 
     return(
         <main>
+            <h1>New Pages</h1>
         </main>
     )
 }

@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="home" element={<HomePage />}/>
         <Route path="search" element={<SearchPage />}/>
-          <Route path=':bookId' element={<BookDetailPage />} />
+        <Route path='detail/:bookId' element={<BookDetailPage />} />
         {/* <Route
           path="/"
           element={

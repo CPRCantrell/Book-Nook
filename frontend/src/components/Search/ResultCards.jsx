@@ -15,9 +15,9 @@ const ResultCards = ({bookResults}) => {
 
     return (
         <div className='results'>
-            {bookResults.map((book) => {
+            {bookResults.map((book, index) => {
                 return(
-                    <Link to={`/search/${book.id}`}>
+                    <Link key={index} to={`/detail/${book.id}`}>
                         <div className='card'>
                             <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
                             <div className='info'>
