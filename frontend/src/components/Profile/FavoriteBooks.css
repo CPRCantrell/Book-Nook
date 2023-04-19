@@ -1,0 +1,12 @@
+.favorite-card{
+    background-color: var(--dark-background-color);
+    display: grid;
+    gap: 25px;
+    padding: 2rem 4rem;
+    margin: auto;
+    color: var(--text-light-color);
+    width: 10%;
+    font-size: var(--xlg-text);
+    justify-content: center;
+    text-align: center;
+}
