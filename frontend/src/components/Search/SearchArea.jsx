@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
+import searchIcon from '../../Assests/search.svg'
 import './SearchArea.css';
 
 import axios from 'axios'
 
-const SearchArea = ({setBookResults}) => {
+const SearchArea = ({setBookResults, setFilterMenu, filter}) => {
 
     const lookFor = useRef()
     async function results(searchRequest){
@@ -26,10 +27,12 @@ const SearchArea = ({setBookResults}) => {
     return (
         <div className="search-area">
             <form className="search-bar" onSubmit={e => handleSubmit(e)}>
-                <button type="submit">Search</button>
+                <button type="submit">
+                    <img src={searchIcon} alt='Submit Search' />
+                </button>
                 <input type='text' ref={lookFor} placeholder="Search"/>
             </form>
-            <button className="filter">Filter</button>
+            <button className={filter ? "on-filter":"off-filter"} onClick={()=>setFilterMenu(!filter)}>Filter</button>
         </div>
     );
 }

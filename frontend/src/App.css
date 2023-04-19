@@ -10,10 +10,28 @@
 }
 
 :root{
+  /* Background variables */
   --dark-background-color: hsla(0, 0%, 0%, 0.5);
-  --heart-favorite-color: rgb(218, 85, 85);
-  --text-light-color: white;
   --nav-background-color: rgba(255, 255, 255, 0.10);
+
+  /* Fill variables */
+  --heart-favorite-color: rgb(218, 85, 85);
+
+  /* text color variables */
+  --text-light-color: white;
+
+  --xsm-text: 1.6rem;
+  --sm-text: 1.8rem;
+  --m-text: 2rem;
+  --lg-text: 2.4rem;
+  --xlg-text: 3.2rem;
+
+  /* border variables */
+  --main-border-decoration: solid;
+  --main-border-color: white;
+
+  --sm-border-width: 1px;
+  --med-border-width: 2px;
 }
 
 html {

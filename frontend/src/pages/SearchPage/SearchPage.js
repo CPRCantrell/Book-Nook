@@ -5,10 +5,11 @@ import './SearchPage.css'
 const SearchPage = () => {
 
     const [booksResults, setBooksResults] = useState([]);
+    const [showFilterMenu, setShowFilterMenu] = useState(false);
 
     return(
         <main className='content'>
-            <SearchArea setBookResults={setBooksResults}/>
+            <SearchArea setBookResults={setBooksResults} setFilterMenu={setShowFilterMenu} filter={showFilterMenu} />
         </main>
     )
 }
