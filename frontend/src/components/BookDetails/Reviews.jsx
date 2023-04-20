@@ -1,24 +1,56 @@
-import React, { useState,useRef } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 import axios from 'axios'
 // need username and token
-const Reviews = ({bookData, auth, bookId}) => {
+const Reviews = ({bookInfo, auth, bookId}) => {
 
-    const lookFor = useRef()
-    const [button ,setButton]=useState("inactive")
-    console.log('reviews')
+    const reviewText = useRef()
+    const rating=useRef()
+    const [addReviewForm ,setAddReviewForm]=useState(false)
+    const [favorite, setFavorite] = useState(false);
+    const firstLoad=useRef(true)
 
-    function setState(){
-        if(button=="inactive"){
-            setButton("active")
+
+    useEffect(() => {
+        console.log("useEffect ran")
+        if(!firstLoad.current){
+
+            if(favorite){
+                console.log(bookInfo.volumeInfo.title)
+                let fav={
+                    book_id:bookId,
+                    title:bookInfo.volumeInfo.title,
+                    thumbnail_url:bookInfo.volumeInfo.imageLinks.thumbnail
+                }
+                addToFavorites(fav)
+            }
+            else{
+                console.log('remove from fav')
+                // removeFromFavorites()
+            }
         }
-        if(button=="active"){
-            setButton("inactive")
+        else{
+            console.log("swicthed first load")
+            firstLoad.current=false
+        }
+    }, [favorite]);
+
+    
+    async function addToFavorites(fav){
+        try{
+            let results= await axios.post(`http://127.0.0.1:5000/api/book/favorite`,fav,{
+                headers: {
+                    Authorization: auth,
+                },
+            })
+        }catch(ex){
+            console.log('error in submit')
         }
     }
+    
 
     async function submit(review){
         try{
-            let results= await axios.post(`http://127.0.0.1:5000/api/book/review/${review}`,{
+            let results= await axios.post(`http://127.0.0.1:5000/api/book/review`,review,{
                 headers: {
                     Authorization: auth,
                 },
@@ -30,39 +62,38 @@ const Reviews = ({bookData, auth, bookId}) => {
 
     function handleSubmit(event){
         event.preventDefault()
-        let searchFor = lookFor.current.value
-        submit(searchFor)
+        let review={
+            book_id:bookId,
+            review_text:reviewText.current.value,
+            rating:parseInt(rating.current.value)
+        }
+        submit(review)
 
     }
 
     function addReview(){
-        if(button=="active"){
+        
             return (
                 <form onSubmit={e => handleSubmit(e)}>
-                    <input type='text' ref={lookFor} />
+                    <input type='text' ref={reviewText} />
+                    <input type='text' ref={rating}/>
                     <button type='submit'>submit review</button>
+
                 </form>
             )
-        }
+        
     }
 
-    async function addFav(){
-        try{
-            let results= await axios.post(`http://127.0.0.1:5000/api/book/favorite`,{
-                headers: {
-                    Authorization: auth,
-                },
-            },bookData)
-        }catch(ex){
-            console.log('error in submit')
-        }
-    }
+    
     return (
         <div>
-            {bookData.map((book)=><div>{book.reviews}</div>)}
-            <div><button onClick={()=>addFav()}>Add To Favorites</button></div>
+            {/* {allReviews.map((rev)=><div>{rev.reviews}</div>)} */}
+            <div><button onClick={()=>setFavorite(!favorite)}>Add To Favorites</button></div>
             <div>
-                <button onClick={() => setState()}>Add Review</button>
+                <button onClick={() =>setAddReviewForm(!addReviewForm)}>Add Review</button>
+            </div>
+            <div>
+                {addReviewForm?addReview():null}
             </div>
         </div>
     );

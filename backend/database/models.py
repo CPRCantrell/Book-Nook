@@ -34,7 +34,7 @@ class Reviews(db.Model):
     # id = db.Column(db.Integer, primary_key=True)
     book_id = db.Column(db.String(255))
     user_username = db.Column(db.String(255), db.ForeignKey('user.username'))
-    review_text = db.Column(db.String(255), nullable=False)
+    review_text = db.Column(db.Text, nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     user = db.relationship("User")
 
@@ -48,6 +48,6 @@ class FavoriteBooks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     book_id = db.Column(db.String(255), nullable=False)
     title = db.Column(db.String(255), nullable=False)
-    thumbnail_url = db.Column(db.String(255), nullable=False)
+    thumbnail_url = db.Column(db.Text, nullable=False)
     user_username = db.Column(db.String(255), db.ForeignKey('user.username'))
     user = db.relationship("User")

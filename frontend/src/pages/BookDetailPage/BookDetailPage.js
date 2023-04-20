@@ -9,7 +9,7 @@ const BookDetailPage = () => {
 
     const { bookId } = useParams();
     const [bookInfo, setBookInfo] = useState([]);
-    const [bookData, setBookData] = useState([])
+    // const [bookData, setBookData] = useState([])
     const [user, token] = useAuth()
     const auth = "Bearer " + token;
 
@@ -28,24 +28,14 @@ const BookDetailPage = () => {
         }
     }
 
-    async function getReviews(id){
-        try{
-            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`)
-            console.log(response.data)
-            setBookData(response)
-
-        }
-        catch{
-            console.log('error in collecting data - getReviews')
-        }
-    }
+    
 
     return(
         <main>
             {bookInfo.length<=0? null:
             <>
             <BookDetails bookInfo={bookInfo}/>
-            <Reviews bookData={bookData} auth={auth} bookId={bookId}/>
+            <Reviews bookInfo={bookInfo} auth={auth} bookId={bookId}/>
             </>}
 
         </main>
