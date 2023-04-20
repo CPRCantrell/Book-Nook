@@ -5,6 +5,7 @@ import BookDetails from '../../components/BookDetails/BookDetails';
 import Favorite from '../../components/BookDetails/Favorite'
 import Reviews from '../../components/BookDetails/Reviews';
 import useAuth from '../../hooks/useAuth'
+import './BookDetailPage.css'
 
 
 const BookDetailPage = () => {
@@ -45,7 +46,7 @@ const BookDetailPage = () => {
 
 
     return(
-        <main>
+        <main className='book-content'>
             {bookInfo.length<=0 ? null:
             <>
             <BookDetails bookInfo={bookInfo} />

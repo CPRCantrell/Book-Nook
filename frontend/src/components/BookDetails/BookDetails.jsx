@@ -13,10 +13,11 @@ const BookDetails = ({bookInfo}) => {
 
     return (
         <div className='book'>
-            <div>
-                <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='main'/>
+            <div className='main'>
+                <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='img'/>
+                <div className="img-filter"></div>
+                <img src={checkForImg(bookInfo.volumeInfo)} alt='' className='img-effect'/>
             </div>
-            <img src={checkForImg(bookInfo.volumeInfo)} alt='' className='img-effect'/>
             <div className='info'>
                 <h1 className='title'>{bookInfo.volumeInfo.title}</h1>
                 <h2 className='author'>{'By: '}
