@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import './FavoriteBooks.css'
 
@@ -27,13 +28,15 @@ const FavoriteBooks = ({auth}) => {
     return (
         <div>
             {favoritebooks.length > 0 ?
-            favoritebooks.map(book => {
+            favoritebooks.map((book, index) => {
                 return(
-                    <div key={book.id} className='favorite-card'>
-                        <img src={book.thumbnail_url} alt={`${book.title}`} />
-                        <h2>{book.title}</h2>
-                        <button>{'<3'}</button>
-                    </div>
+                    <Link key={index} to={`/detail/${book.book_id}`}>
+                        <div className='favorite-card'>
+                            <img src={book.thumbnail_url} alt={`${book.title}`} />
+                            <h2>{book.title}</h2>
+                            <button>{'<3'}</button>
+                        </div>
+                    </Link>
                 )
             })
             :null}

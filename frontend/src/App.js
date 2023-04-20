@@ -1,5 +1,5 @@
 // General Imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 // Pages Imports
@@ -31,6 +31,7 @@ function App() {
         <Route path='detail/:bookId' element={<BookDetailPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path='/*' element={<Navigate to='/home' replace={true} />} />
       </Routes>
     </div>
   );
