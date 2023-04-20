@@ -7,6 +7,7 @@ import axios from 'axios'
 const SearchArea = ({setBookResults, setFilterMenu, filter}) => {
 
     const lookFor = useRef()
+
     async function results(searchRequest){
         try{
             let books = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchRequest}&maxResults=40`)
@@ -26,7 +27,7 @@ const SearchArea = ({setBookResults, setFilterMenu, filter}) => {
 
     return (
         <div className="search-area">
-            <form className="search-bar" onSubmit={e => handleSubmit(e)}>
+            <form className="search-bar" onSubmit={e => handleSubmit(e)} onClick={()=>lookFor.current.focus()}>
                 <button type="submit">
                     <img src={searchIcon} alt='Submit Search' />
                 </button>

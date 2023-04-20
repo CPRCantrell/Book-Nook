@@ -4,11 +4,11 @@
 
 .search-area{
     width: 75%;
+    height: 7rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-inline: auto;
-    padding: 25px 50px;
     background-color: var(--dark-background-color);
     border-radius: 5px;
 }
@@ -27,14 +27,20 @@
 .search-bar{
     display: flex;
     align-items: center;
-    height: 25px;
+    height: 100%;
+    width: 100%;
+    padding-left: 50px;
 }
 
 .search-bar button img{
-    height: 24px;
+    height: 25px;
     margin-right: 1rem;
     transform-origin: bottom right;
     transform: rotate(10deg)
+}
+
+.search-bar input{
+    padding-bottom: 1px;
 }
 
 .search-area button,
@@ -43,7 +49,6 @@ input:placeholder-shown{
     border: none;
 }
 
-.search-area .off-filter:hover,
 .search-bar input:hover,
 .search-bar input:focus,
 input:not(:placeholder-shown){
@@ -62,11 +67,22 @@ input:not(:placeholder-shown){
 
 .search-area .on-filter,
 .search-area .off-filter{
-    padding: .5rem 1rem;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
 }
 
 .search-area .on-filter{
-    opacity: 30%;
-    border: var(--border-effect);
+    opacity: 50%;
+    border-right: var(--border-effect);
+    border-top: var(--border-effect);
+    border-radius: 5px;
+    box-shadow: inset 4px -4px 4px black;
+}
+
+.search-area .off-filter:hover{
+    border-bottom: var(--border-effect);
+    border-left: var(--border-effect);
     border-radius: 5px;
 }
