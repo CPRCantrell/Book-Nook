@@ -20,7 +20,7 @@ const ResultCards = ({bookResults}) => {
                         <div className='card'>
                             <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
                             <div className='rating'>
-                                <p>{book.volumeInfo.averageRating}</p>
+                                <p>{book.volumeInfo.averageRating ? book.volumeInfo.averageRating:'No rating'} <span>&#9733;</span></p>
                             </div>
                             <div className='info'>
                                 <h2>{book.volumeInfo.title}</h2>
