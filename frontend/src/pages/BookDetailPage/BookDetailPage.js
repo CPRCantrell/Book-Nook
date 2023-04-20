@@ -5,6 +5,7 @@ import BookDetails from '../../components/BookDetails/BookDetails';
 import Reviews from '../../components/BookDetails/Reviews';
 import useAuth from '../../hooks/useAuth'
 
+
 const BookDetailPage = () => {
 
     const { bookId } = useParams();
@@ -35,7 +36,7 @@ const BookDetailPage = () => {
             {bookInfo.length<=0? null:
             <>
             <BookDetails bookInfo={bookInfo}/>
-            <Reviews bookInfo={bookInfo} auth={auth} bookId={bookId}/>
+            <Reviews bookInfo={bookInfo} auth={auth} bookId={bookId} />
             </>}
 
         </main>
