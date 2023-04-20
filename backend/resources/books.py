@@ -67,8 +67,9 @@ class GetBookInfo(Resource):
         all_reviews = reviews_schema.dump(all_reviews)
         print(all_reviews)
         all_ratings = [rev['rating'] for rev in all_reviews]
-        avg_rating = sum(all_ratings)/len(all_ratings)
-
+        if len(all_ratings)!=0:
+            avg_rating = sum(all_ratings)/len(all_ratings)
+        else:avg_rating=0
         json={
             "reviews": all_reviews,
             "average_rating": avg_rating

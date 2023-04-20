@@ -7,11 +7,13 @@ const Reviews = ({bookInfo, auth, bookId}) => {
     const rating=useRef()
     const [addReviewForm ,setAddReviewForm]=useState(false)
     const [favorite, setFavorite] = useState(false);
+    const [allReviews,setAllReviews]=useState([])
     const firstLoad=useRef(true)
 
 
     useEffect(() => {
         console.log("useEffect ran")
+        getAllReviews()
         if(!firstLoad.current){
 
             if(favorite){
@@ -84,6 +86,21 @@ const Reviews = ({bookInfo, auth, bookId}) => {
         
     }
 
+    async function getAllReviews(){
+        try{
+            let results= await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`,{
+                headers: {
+                    Authorization: auth,
+                },
+            })
+            console.log(bookId)
+            console.log(results)
+            console.log(results.data.reviews)
+            setAllReviews(results.data.reviews)
+        }catch(ex){
+            console.log('error in submit')
+        }
+    }
     
     return (
         <div>
@@ -94,6 +111,16 @@ const Reviews = ({bookInfo, auth, bookId}) => {
             </div>
             <div>
                 {addReviewForm?addReview():null}
+            </div>
+            <div>{allReviews.length>0?allReviews.map((rev,index)=>{
+                return(
+                    <div key={index}>
+                        <div>{rev.user_username}</div>
+                        <div>{rev.rating}</div>
+                        <div>{rev.review_text}</div>
+                    </div>
+                )
+                }):<div></div>}
             </div>
         </div>
     );
