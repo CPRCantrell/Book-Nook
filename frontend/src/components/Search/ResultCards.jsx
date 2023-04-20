@@ -24,7 +24,7 @@ const ResultCards = ({bookResults}) => {
                             </div>
                             <div className='info'>
                                 <h2>{book.volumeInfo.title}</h2>
-                                <p>{book.volumeInfo.description}</p>
+                                <p dangerouslySetInnerHTML={{ __html: book.volumeInfo.description }} />
                             </div>
                         </div>
                     </Link>

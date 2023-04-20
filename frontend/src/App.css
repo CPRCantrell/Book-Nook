@@ -17,8 +17,9 @@
   /* Fill variables */
   --heart-favorite-color: rgb(218, 85, 85);
 
-  /* text color variables */
+  /* text variables */
   --text-light-color: white;
+  --text-off-color: rgb(160, 160, 160);
 
   --xsm-text: 1.4rem;
   --sm-text: 1.8rem;

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import defaultCover from '../../Assests/default-book-cover.jpg'
+import './BookDetails.css'
 
 const BookDetails = ({bookInfo}) => {
     function checkForImg(data){
@@ -9,15 +10,29 @@ const BookDetails = ({bookInfo}) => {
 
         return(defaultCover)
     }
-    return (  
-        <div className='card'>
-            <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='thumbnail'/>
+
+    return (
+        <div className='book'>
+            <div>
+                <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='main'/>
+            </div>
+            <img src={checkForImg(bookInfo.volumeInfo)} alt='' className='img-effect'/>
             <div className='info'>
-                <h2>{bookInfo.volumeInfo.title}</h2>
-                <p>{bookInfo.volumeInfo.description}</p>
+                <h1 className='title'>{bookInfo.volumeInfo.title}</h1>
+                <h2 className='author'>{'By: '}
+                    {bookInfo.volumeInfo.authors.map((author, index, authorsArray) => {
+                        if(index !== authorsArray.length - 1){
+                            return(`${author} & `)
+                        }
+                        else{
+                            return(author)
+                        }
+                    })}
+                </h2>
+                <p className='discription' dangerouslySetInnerHTML={{ __html: bookInfo.volumeInfo.description }} />
             </div>
         </div>
     );
 }
- 
+
 export default BookDetails;

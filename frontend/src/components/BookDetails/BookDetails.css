@@ -1,0 +1,36 @@
+.book{
+    position: relative;
+    color: var(--text-light-color);
+    isolation: isolate;
+    width: 75%;
+    margin-inline: auto;
+    padding-top: 50px;
+    display: flex;
+    gap: 5%;
+}
+
+.book .main{
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+}
+
+.book .img-effect{
+    position: relative;
+    z-index: 0;
+}
+
+.book .title{
+    font-size: var(--xlg-text);
+}
+
+.book .author{
+    font-size: var(--lg-text);
+    color: var(--text-off-color);
+    padding-bottom: 2.5rem
+}
+
+.book .discription,
+.book .discription *{
+    font-size: var(--sm-text);
+}
