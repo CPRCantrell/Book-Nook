@@ -7,7 +7,6 @@
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    column-gap: 50px;
     row-gap: 100px;
     padding-block: 100px;
     background-color: aqua;
