@@ -45,7 +45,7 @@ const BookDetailPage = () => {
             {bookInfo.length<=0? null:
             <>
             <BookDetails bookInfo={bookInfo}/>
-            <Reviews bookData={bookData} auth={auth}/>
+            <Reviews bookData={bookData} auth={auth} bookId={bookId}/>
             </>}
 
         </main>
