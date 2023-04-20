@@ -1,24 +1,36 @@
+:root{
+    --separator: var(--main-border-decoration) var(--sm-border-width) var(--main-border-color);
+}
+
 .results{
     width: 75%;
     margin-inline: auto;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 50%);
     column-gap: 50px;
     row-gap: 100px;
     padding-block: 100px;
+    background-color: aqua;
 }
 
 .card{
+    position: relative;
     background-color: var(--dark-background-color);
     border-radius: 5px;
+    padding: 1rem 2rem;
     display: flex;
-    gap: 25px;
-    height: 200px;
+}
+
+.thumbnail{
+    position: absolute;
+    padding-right: 1rem;
+    width: 130px;
 }
 
 .card .info{
-    height: 100%;
+    border-left: var(--separator);
     color: var(--text-light-color);
+    padding-left: 1rem;
     display: grid;
     gap: 10px;
 }
@@ -28,9 +40,5 @@
 }
 
 .card .info p{
-    height: 100%;
-    display: flex;
     font-size: var(--xsm-text);
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
