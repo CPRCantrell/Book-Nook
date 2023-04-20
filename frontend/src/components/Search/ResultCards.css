@@ -1,43 +1,79 @@
 :root{
     --separator: var(--main-border-decoration) var(--sm-border-width) var(--main-border-color);
+    --card-inline-padding: 1rem;
+}
+
+*{
+    text-decoration: none;
 }
 
 .results{
     width: 75%;
     margin-inline: auto;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 47.5%);
     row-gap: 100px;
     padding-block: 100px;
-    background-color: aqua;
+    column-gap: 5%;
 }
 
 .card{
     position: relative;
     background-color: var(--dark-background-color);
     border-radius: 5px;
-    padding: 1rem 2rem;
+    padding: var(--card-inline-padding) 2rem;
     display: flex;
+    height: 20rem;
 }
 
 .thumbnail{
     position: absolute;
+    top: -15%;
     padding-right: 1rem;
     width: 130px;
+    height: 180px;
+}
+
+.star{
+    font-size: var(--sm-text);
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.rating{
+    position: absolute;
+    bottom: var(--card-inline-padding);
+    width: 130px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+}
+
+.rating p{
+    font-size: var(--xsm-text);
+    color: var(--text-light-color);
 }
 
 .card .info{
     border-left: var(--separator);
     color: var(--text-light-color);
+    margin-left: 130px;
     padding-left: 1rem;
-    display: grid;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
+    overflow: hidden;
 }
 
 .card .info h2{
-    font-size: var(--m-text);
+    font-size: var(--sm-text);
 }
 
 .card .info p{
     font-size: var(--xsm-text);
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

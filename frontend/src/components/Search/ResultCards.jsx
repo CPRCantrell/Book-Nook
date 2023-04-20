@@ -9,7 +9,6 @@ const ResultCards = ({bookResults}) => {
         if(data.imageLinks){
             return(data.imageLinks.thumbnail)
         }
-
         return(defaultCover)
     }
 
@@ -20,6 +19,9 @@ const ResultCards = ({bookResults}) => {
                     <Link key={index} to={`/detail/${book.id}`}>
                         <div className='card'>
                             <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
+                            <div className='rating'>
+                                <p>{book.volumeInfo.averageRating}</p>
+                            </div>
                             <div className='info'>
                                 <h2>{book.volumeInfo.title}</h2>
                                 <p>{book.volumeInfo.description}</p>
