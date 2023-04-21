@@ -5,7 +5,7 @@ import NotFavoriteIcon from '../../Assests/not-favorite.svg'
 import axios from 'axios';
 import './Favorite.css'
 
-const Favorite = ({bookInfo, auth, isFavorited, bookId}) => {
+const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
 
     const firstLoad=useRef(true)
     const [favorite, setFavorite] = useState(isFavorited)
@@ -13,7 +13,6 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId}) => {
     useEffect(() => {
         if(!firstLoad.current){
             if(favorite){
-                console.log(bookInfo.volumeInfo.title)
                 let fav={
                     book_id:bookId,
                     title:bookInfo.volumeInfo.title,
@@ -21,8 +20,11 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId}) => {
                 }
                 // addToFavorites(fav)
             }
-            else if(favorite){
-                removeFromFavorites()
+            else{
+                let noFav={
+                    book_id:bookId,
+                }
+                removeFromFavorites(noFav)
             }
         }
         else{
@@ -43,18 +45,28 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId}) => {
         }
     }
 
-    async function removeFromFavorites(fav){}
+    async function removeFromFavorites(noFav){
+        try{
+            let results = await axios.delete('http://127.0.0.1:5000/api/book/favorite', noFav,{
+                headers: {
+                    Authorization: auth,
+                },
+            })
+        }catch(ex){
+            console.log('error in submit')
+        }
+    }
 
     function logged(){
         return(
-            <img src={favorite ? FavoriteIcon:NotFavoriteIcon} alt='Favorite' className={`heart ${favorite ? 'fill':'empty'}`} onClick={()=>setFavorite(!favorite)}/>
+            <img src={favorite ? FavoriteIcon:NotFavoriteIcon} alt='Favorite' className={`heart ${className} ${favorite ? 'fill':'empty'}`} onClick={()=>setFavorite(!favorite)}/>
         )
     }
 
     function notLogged(){
         return(
             <Link to='/login' className='link'>
-                <img src={NotFavoriteIcon} alt='Favorite' className={'heart empty'} />
+                <img src={NotFavoriteIcon} alt='Favorite' className={`heart empty ${className}`} />
             </Link>
         )
     }

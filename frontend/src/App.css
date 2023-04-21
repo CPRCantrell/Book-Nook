@@ -30,6 +30,8 @@
 
   --sm-border-width: 1px;
   --med-border-width: 2px;
+
+  --border-effect: var(--main-border-decoration) var(--sm-border-width) var(--main-border-color);
 }
 
 html {

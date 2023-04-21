@@ -47,14 +47,35 @@ const BookDetailPage = () => {
         }
     }
 
-
+    function categoryTags(){
+        let listOfTags = bookInfo.volumeInfo.categories[0].split(' / ')
+        if(listOfTags.length >0 ){
+            return(
+                listOfTags.map((category, index)=><div key={index} className='category-tag'>{category}</div>)
+            )
+        }
+        else{
+            return(<div className='no-tag'>No category tags</div>)
+        }
+    }
 
     return(
         <main className='book-content'>
             {bookInfo.length<=0 ? null:
             <>
             <BookDetails bookInfo={bookInfo} />
-            <Favorite bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} />
+            <div className='more-info'>
+                <div className='favorite-space'>
+                    <Favorite bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} className='favorite' />
+                    <p>Favorite</p>
+                </div>
+                <div className='category-space'>
+                    <p>categories:</p>
+                    <div className='tags'>
+                        {categoryTags()}
+                    </div>
+                </div>
+            </div>
             <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} />
             </>}
 
