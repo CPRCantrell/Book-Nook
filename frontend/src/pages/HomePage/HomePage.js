@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import Trending from "../../components/Home/Trending";
+import Recommended from "../../components/Home/Recommended";
 
 import axios from "axios";
 
@@ -40,7 +42,10 @@ const HomePage = () => {
   //   </div>
   // );
   return(
-    <div></div>
+    <main>
+      <div><Trending /></div>
+      <div><Recommended /></div>
+    </main>
   )
 };
 
