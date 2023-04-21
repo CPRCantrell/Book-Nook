@@ -37,11 +37,11 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
         try{
             let results = await axios.post('http://127.0.0.1:5000/api/book/favorite', fav,{
                 headers: {
-                    Authorization: auth,
-                },
+                    Authorization: auth
+                }
             })
         }catch(ex){
-            console.log('error in submit')
+            console.log('error in add to fav submit')
         }
     }
 
@@ -49,11 +49,11 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
         try{
             let results = await axios.delete('http://127.0.0.1:5000/api/book/favorite', noFav,{
                 headers: {
-                    Authorization: auth,
-                },
+                    Authorization: auth
+                }
             })
         }catch(ex){
-            console.log('error in submit')
+            console.log('error in remove from fav submit')
         }
     }
 
