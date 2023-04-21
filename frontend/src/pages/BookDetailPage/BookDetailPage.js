@@ -23,7 +23,7 @@ const BookDetailPage = () => {
 
     async function getInfoFromAPI(){
         try{
-            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${id}`,{
+            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`,{
                 headers:{
                     Authorization: auth
                 }
@@ -39,7 +39,7 @@ const BookDetailPage = () => {
 
     async function getBookInfo(){
         try{
-            let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
+            let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
             console.log("this is from getBookInfo")
             console.log(response.data)
             setBookInfo(response.data)
