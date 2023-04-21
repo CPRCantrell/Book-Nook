@@ -10,7 +10,7 @@ const BookDetails = ({bookInfo}) => {
 
         return(defaultCover)
     }
-    if(bookInfo.volumeInfo.description){
+    if(bookInfo.volumeInfo.description && bookInfo.volumeInfo.authors){
         return (
             <div className='book'>
                 <div className='main'>

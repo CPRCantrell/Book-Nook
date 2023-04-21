@@ -23,27 +23,29 @@ const BookDetailPage = () => {
 
     async function getInfoFromAPI(id){
         try{
-            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`,{
+            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${id}`,{
                 headers:{
-                    Authorization: auth,
-                },
+                    Authorization: auth
+                }
             })
+            console.log("this is for getInfoFromApi")
             console.log(response.data)
             setCustomBookInfo(response.data)
         }
         catch{
-            console.log('error in collecting data')
+            console.log('error in collecting data1')
         }
     }
 
     async function getBookInfo(id){
         try{
-            let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
+            let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
+            console.log("this is from getBookInfo")
             console.log(response.data)
             setBookInfo(response.data)
         }
         catch{
-            console.log('error in collecting data')
+            console.log('error in collecting data2')
         }
     }
 
@@ -53,7 +55,7 @@ const BookDetailPage = () => {
             <>
             <BookDetails bookInfo={bookInfo} />
             <BookInteract bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} />
-            <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} />
+            <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} bookInfo={bookInfo} />
             </>}
 
         </main>
