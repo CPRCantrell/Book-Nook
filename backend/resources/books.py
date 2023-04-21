@@ -107,3 +107,8 @@ class GetBookInfo(Resource):
             json["favorited"]="not_logged_in"
 
         return json, 200
+
+class GetAllBooksWithReviews(Resource):
+    def get(self):
+        all_books=Reviews.query.all()
+        return reviews_schema.dump(all_books),200
