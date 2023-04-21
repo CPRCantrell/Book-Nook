@@ -11,27 +11,31 @@ const ResultCards = ({bookResults}) => {
         }
         return(defaultCover)
     }
-
-    return (
-        <div className='results'>
-            {bookResults.map((book, index) => {
-                return(
-                    <Link key={index} to={`/detail/${book.id}`}>
-                        <div className='card'>
-                            <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
-                            <div className='rating'>
-                                <p>{book.volumeInfo.averageRating ? book.volumeInfo.averageRating:'No rating'} <span>&#9733;</span></p>
+    if(bookResults===undefined){
+        return (<div>No Results Found!</div>)
+    }
+    else{
+        return (
+            <div className='results'>
+                {bookResults.map((book, index) => {
+                    return(
+                        <Link key={index} to={`/detail/${book.id}`}>
+                            <div className='card'>
+                                <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
+                                <div className='rating'>
+                                    <p>{book.volumeInfo.averageRating ? book.volumeInfo.averageRating:'No rating'} <span>&#9733;</span></p>
+                                </div>
+                                <div className='info'>
+                                    <h2>{book.volumeInfo.title}</h2>
+                                    <p dangerouslySetInnerHTML={{ __html: book.volumeInfo.description }} />
+                                </div>
                             </div>
-                            <div className='info'>
-                                <h2>{book.volumeInfo.title}</h2>
-                                <p dangerouslySetInnerHTML={{ __html: book.volumeInfo.description }} />
-                            </div>
-                        </div>
-                    </Link>
-                )
-            })}
-        </div>
-    );
+                        </Link>
+                    )
+                })}
+            </div>
+        );
+    }
 }
 
 export default ResultCards;
