@@ -1,25 +1,33 @@
 import React from "react";
 import { useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import homeIcon from '../../Assests/home.svg'
+import searchIcon from '../../Assests/search-nav.svg'
+import categoryIcon from '../../Assests/category.svg'
+import libraryIcon from '../../Assests/library.svg'
+import supriseIcon from '../../Assests/suprise.svg'
+import profileDefault from '../../Assests/profile-default.jpg'
+import auth from '../../hooks/useAuth'
 import "./NavBar.css";
 
 const Navbar = () => {
 
-  const { logoutUser , user } = useContext(AuthContext);
+  const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   return (
     <div className="nav-bar">
       {user?
       <div className="profile-space">
-        <Link to="/profile" className="link">
-          <button>profile</button>
+        <button onClick={logoutUser} className="logout">Logout</button>
+        <Link to="/profile" className={"link profile"}>
+          <img src={profileDefault} alt="Profile" />
+          <p>{user.username}</p>
         </Link>
-        <button onClick={logoutUser}>log-out</button>
       </div>
       :
-      <div className="profile-space">
+      <div className="log-space">
         <Link to="/login" className="link">
           <button>Log-in</button>
         </Link>
@@ -29,59 +37,45 @@ const Navbar = () => {
       </div>
       }
 
-      <Link to="/home" className="link">
+      <NavLink activeClassName='active' to="/home" className="link">
         <button className="nav-button">
-          <div></div>
+          <img src={homeIcon} alt='Home' />
           <p>Home</p>
         </button>
-      </Link>
+      </NavLink>
 
-      <Link to="/search" className="link">
+      <NavLink activeClassName='active' to="/search" className="link">
         <button className="nav-button">
-          <div></div>
+        <img src={searchIcon} alt='Search' />
           <p>Search</p>
         </button>
-      </Link>
+      </NavLink>
 
-      <Link to="/categories" className="link">
+      <NavLink activeClassName='active' to="/categories" className="link">
         <button className="nav-button">
-          <div></div>
+        <img src={categoryIcon} alt='Categoriies' />
           <p>Categories</p>
         </button>
-      </Link>
+      </NavLink>
 
       <div className="separator">Personal</div>
 
-      <Link to="/library" className="link">
+      <NavLink activeClassName='active' to="/library" className="link">
         <button className="nav-button">
-          <div></div>
+        <img src={libraryIcon} alt='Library' />
           <p>Library</p>
         </button>
-      </Link>
+      </NavLink>
 
       <div className="separator">Special</div>
 
-      <Link to="/surprise" className="link">
+      <NavLink activeClassName='active' to="/surprise" className="link">
         <button className="nav-button">
-          <div></div>
+        <img src={supriseIcon} alt='Suprise' />
           <p>Surprise</p>
         </button>
-      </Link>
+      </NavLink>
 
-      {/* <ul>
-        <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Flask JWT</b>
-          </Link>
-        </li>
-        <li>
-          {user ? (
-            <button onClick={logoutUser}>Logout</button>
-          ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
-          )}
-        </li>
-      </ul> */}
     </div>
   );
 };
