@@ -37,21 +37,21 @@ const Navbar = () => {
       </div>
       }
 
-      <NavLink activeClassName='active' to="/home" className="link">
+      <NavLink activeclassname='active' to="/home" className="link">
         <button className="nav-button">
           <img src={homeIcon} alt='Home' />
           <p>Home</p>
         </button>
       </NavLink>
 
-      <NavLink activeClassName='active' to="/search" className="link">
+      <NavLink activeclassname='active' to="/search" className="link">
         <button className="nav-button">
         <img src={searchIcon} alt='Search' />
           <p>Search</p>
         </button>
       </NavLink>
 
-      <NavLink activeClassName='active' to="/categories" className="link">
+      <NavLink activeclassname='active' to="/categories" className="link">
         <button className="nav-button">
         <img src={categoryIcon} alt='Categoriies' />
           <p>Categories</p>
@@ -60,7 +60,7 @@ const Navbar = () => {
 
       <div className="separator">Personal</div>
 
-      <NavLink activeClassName='active' to="/library" className="link">
+      <NavLink activeclassname='active' to="/library" className="link">
         <button className="nav-button">
         <img src={libraryIcon} alt='Library' />
           <p>Library</p>
@@ -69,7 +69,7 @@ const Navbar = () => {
 
       <div className="separator">Special</div>
 
-      <NavLink activeClassName='active' to="/surprise" className="link">
+      <NavLink activeclassname='active' to="/surprise" className="link">
         <button className="nav-button">
         <img src={supriseIcon} alt='Suprise' />
           <p>Surprise</p>

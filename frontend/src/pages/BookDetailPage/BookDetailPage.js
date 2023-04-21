@@ -17,11 +17,11 @@ const BookDetailPage = () => {
     const auth = "Bearer " + token;
 
     useEffect(() => {
-        getInfoFromAPI(bookId)
-        getBookInfo(bookId)
+        getInfoFromAPI()
+        getBookInfo()
     }, []);
 
-    async function getInfoFromAPI(id){
+    async function getInfoFromAPI(){
         try{
             let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${id}`,{
                 headers:{
@@ -37,7 +37,7 @@ const BookDetailPage = () => {
         }
     }
 
-    async function getBookInfo(id){
+    async function getBookInfo(){
         try{
             let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
             console.log("this is from getBookInfo")
