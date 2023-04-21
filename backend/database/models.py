@@ -36,7 +36,7 @@ class Reviews(db.Model):
     user_username = db.Column(db.String(255), db.ForeignKey('user.username'))
     review_text = db.Column(db.Text, nullable=False)
     rating = db.Column(db.Integer, nullable=False)
-    thumbnail_url = db.Column(db.Text, nullable=False)
+    thumbnail_url = db.Column(db.Text)
     user = db.relationship("User")
 
     __table_args__ = (

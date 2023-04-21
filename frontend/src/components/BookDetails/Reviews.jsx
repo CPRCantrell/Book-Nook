@@ -5,7 +5,7 @@ import axios from 'axios'
 import './Reviews.css'
 
 // need username and token
-const Reviews = ({auth, bookId, allRev}) => {
+const Reviews = ({auth, bookId, allRev, bookInfo}) => {
 
     const [addReviewForm ,setAddReviewForm]=useState(false)
     const [allReviews,setAllReviews]=useState(allRev)
@@ -17,7 +17,7 @@ const Reviews = ({auth, bookId, allRev}) => {
                 <button onClick={() =>setAddReviewForm(!addReviewForm)} className={addReviewForm ? 'on':'off'}>Add Review</button>
             </div>
             <Collapsible show={addReviewForm}>
-                <ReviewForm allReviews={allReviews} setAllReviews={setAllReviews} bookId={bookId} auth={auth} />
+                <ReviewForm allReviews={allReviews} setAllReviews={setAllReviews} bookId={bookId} auth={auth} bookInfo={bookInfo}/>
             </Collapsible>
             <div className='all-reviews'>
                 {allReviews.length>0 ? allReviews.map((rev,index) => {

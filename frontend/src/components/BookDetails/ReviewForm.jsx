@@ -3,7 +3,7 @@ import StarRating from './StarRating';
 import axios from "axios";
 import './ReviewForm.css'
 
-const ReviewForm = ({allReviews, setAllReviews, auth, bookId}) => {
+const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo}) => {
 
     const reviewText = useRef()
     const [rating, setRating] = useState(null);
@@ -13,7 +13,8 @@ const ReviewForm = ({allReviews, setAllReviews, auth, bookId}) => {
         let review={
             book_id:bookId,
             review_text:reviewText.current.value,
-            rating:parseInt(rating.current.value)
+            rating:parseInt(rating.current.value),
+            thumbnail_url:bookInfo.volumeInfo.thumbnail
         }
         submit(review)
     }
