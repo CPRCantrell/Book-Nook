@@ -1,3 +1,32 @@
 .book-content{
     padding-block: 50px;
 }
+
+.more-info{
+    width: 75%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    color: var(--text-light-color);
+}
+
+.favorite-space{
+    display: flex;
+    align-items: center;
+}
+
+.favorite-space p{
+    font-size: var(--lg-text);
+    border-left: var(--border-effect);
+    padding-left: 1rem;
+    margin-left: .5rem;
+}
+
+.category-space{
+    display: grid;
+}
+
+.category-space .tag{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
