@@ -48,8 +48,10 @@ const BookDetailPage = () => {
     }
 
     function categoryTags(){
-        let listOfTags = bookInfo.volumeInfo.categories[0].split(' / ')
-        if(listOfTags.length >0 ){
+        let listOfTags
+        try{listOfTags = bookInfo.volumeInfo.categories[0].split(' / ')}
+        catch{return(<div className='no-tag'>No category tags</div>)}
+        if(listOfTags.length > 0 ){
             return(
                 listOfTags.map((category, index)=><div key={index} className='category-tag'>{category}</div>)
             )
@@ -74,6 +76,10 @@ const BookDetailPage = () => {
                     <div className='tags'>
                         {categoryTags()}
                     </div>
+                </div>
+                <div className='publish-space'>
+                    <p>published</p>
+                    <span>{bookInfo.volumeInfo.publishedDate ? bookInfo.volumeInfo.publishedDate.split('-')[0]:'Unknown'}</span>
                 </div>
             </div>
             <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} />
