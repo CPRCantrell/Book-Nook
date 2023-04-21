@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import FavoriteIcon from '../../Assests/favorite.svg'
+import NotFavoriteIcon from '../../Assests/not-favorite.svg'
 import axios from 'axios';
 import './Favorite.css'
 
@@ -18,7 +19,7 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId}) => {
                     title:bookInfo.volumeInfo.title,
                     thumbnail_url:bookInfo.volumeInfo.imageLinks.thumbnail
                 }
-                addToFavorites(fav)
+                // addToFavorites(fav)
             }
             else if(favorite){
                 removeFromFavorites()
@@ -46,14 +47,14 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId}) => {
 
     function logged(){
         return(
-            <img src={FavoriteIcon} alt='Favorite' className={`heart ${favorite ? 'fill':'empty'}`} onClick={()=>setFavorite(!favorite)}/>
+            <img src={favorite ? FavoriteIcon:NotFavoriteIcon} alt='Favorite' className={`heart ${favorite ? 'fill':'empty'}`} onClick={()=>setFavorite(!favorite)}/>
         )
     }
 
     function notLogged(){
         return(
             <Link to='/login' className='link'>
-                <img src={FavoriteIcon} alt='Favorite' className={'heart empty'} />
+                <img src={NotFavoriteIcon} alt='Favorite' className={'heart empty'} />
             </Link>
         )
     }
