@@ -13,7 +13,7 @@ const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo}) => {
             book_id:bookId,
             review_text:reviewText.current.value,
             rating:parseInt(rating.current.value),
-            thumbnail:bookInfo.volumeInfo.thumbnail||null
+            thumbnail_url:bookInfo.volumeInfo.thumbnail
         }
         submit(review)
     }
