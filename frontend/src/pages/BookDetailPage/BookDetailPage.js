@@ -68,7 +68,7 @@ const BookDetailPage = () => {
             <BookDetails bookInfo={bookInfo} />
             <div className='more-info'>
                 <div className='favorite-space'>
-                    <Favorite bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} className='favorite' />
+                    <Favorite bookInfo={bookInfo} auth={auth} user={user} isFavorited={customBookInfo.favorited} bookId={bookId} className='favorite' />
                     <p>Favorite</p>
                 </div>
                 <div className='category-space'>

@@ -5,7 +5,7 @@ import NotFavoriteIcon from '../../Assests/not-favorite.svg'
 import axios from 'axios';
 import './Favorite.css'
 
-const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
+const Favorite = ({bookInfo, auth, isFavorited, bookId, className, user}) => {
 
     const firstLoad=useRef(true)
     const [favorite, setFavorite] = useState(isFavorited)
@@ -18,11 +18,11 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
                     title:bookInfo.volumeInfo.title,
                     thumbnail_url:bookInfo.volumeInfo.imageLinks.thumbnail
                 }
-                // addToFavorites(fav)
+                addToFavorites(fav)
             }
             else{
                 let noFav={
-                    book_id:bookId,
+                    book_id:bookId
                 }
                 removeFromFavorites(noFav)
             }
@@ -34,6 +34,7 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
 
 
     async function addToFavorites(fav){
+        
         try{
             let results = await axios.post('http://127.0.0.1:5000/api/book/favorite', fav,{
                 headers: {
@@ -46,8 +47,9 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
     }
 
     async function removeFromFavorites(noFav){
+        
         try{
-            let results = await axios.delete('http://127.0.0.1:5000/api/book/favorite', noFav,{
+            let results = await axios.delete(`http://127.0.0.1:5000//api/book/deleteFavorite/${bookId}`,{
                 headers: {
                     Authorization: auth
                 }
