@@ -3,3 +3,11 @@
     display: grid;
     justify-content: center;
 }
+
+.rev-group{
+    display: grid;
+}
+
+.text-review textarea{
+    resize: none;
+}
