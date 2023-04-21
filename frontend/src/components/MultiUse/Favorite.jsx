@@ -43,7 +43,7 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className, user}) => {
         }
     }
 
-    async function removeFromFavorites(noFav){
+    async function removeFromFavorites(){
         try{
             let results = await axios.delete(`http://127.0.0.1:5000//api/book/deleteFavorite/${bookId}`,{
                 headers: {
