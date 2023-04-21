@@ -37,7 +37,7 @@ const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo}) => {
         <form className='review-form' onSubmit={e => handleSubmit(e)}>
             <div className={'rev-group text-review'}>
                 <label>Your Review</label>
-                <textarea type='text' ref={reviewText}/>
+                <textarea type='text' ref={reviewText} rows='5'/>
             </div>
             <div className={'rev-group number-review'}>
                 <label>Your Rating:</label>

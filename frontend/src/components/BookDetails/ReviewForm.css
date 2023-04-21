@@ -1,13 +1,38 @@
 .review-form{
     width: 100%;
     display: grid;
-    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto;
+    background-color: var(--nav-background-color);
+    padding-block: 2rem;
+    padding-inline: 4rem;
 }
 
 .rev-group{
     display: grid;
+    grid-template-rows: 25% 75%;
+}
+
+.text-review{
+    grid-row: 1 / span 2;
 }
 
 .text-review textarea{
     resize: none;
+    outline: none;
+    border-radius: 5px;
+    color: black;
+    padding: .5rem;
+}
+
+.review-form button{
+    padding: .5rem;
+    background-color: transparent;
+    border: var(--border-effect);
+    border-radius: 5px;
+}
+
+.review-form button:hover{
+    background-color: var(--nav-background-color);
 }
