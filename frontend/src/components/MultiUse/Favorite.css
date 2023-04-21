@@ -1,0 +1,7 @@
+.heart{
+    width: 75px;
+}
+
+.fill{
+    filter: invert(52%) sepia(31%) saturate(4793%) hue-rotate(328deg) brightness(89%) contrast(91%);
+}

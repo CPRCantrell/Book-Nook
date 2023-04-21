@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import BookDetails from '../../components/BookDetails/BookDetails';
-import Favorite from '../../components/BookDetails/Favorite'
+import Favorite from '../../components/MultiUse/Favorite'
 import Reviews from '../../components/BookDetails/Reviews';
 import useAuth from '../../hooks/useAuth'
 import './BookDetailPage.css'
@@ -23,7 +23,11 @@ const BookDetailPage = () => {
 
     async function getInfoFromAPI(id){
         try{
-            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`)
+            let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`,{
+                headers:{
+                    Authorization: auth,
+                },
+            })
             console.log(response.data)
             setCustomBookInfo(response.data)
         }
