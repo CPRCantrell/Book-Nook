@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import BookDetails from '../../components/BookDetails/BookDetails';
-import Favorite from '../../components/MultiUse/Favorite'
+import BookInteract from '../../components/BookDetails/BookInteract';
 import Reviews from '../../components/BookDetails/Reviews';
 import useAuth from '../../hooks/useAuth'
 import './BookDetailPage.css'
@@ -47,41 +47,12 @@ const BookDetailPage = () => {
         }
     }
 
-    function categoryTags(){
-        let listOfTags
-        try{listOfTags = bookInfo.volumeInfo.categories[0].split(' / ')}
-        catch{return(<div className='category-tag'>No category tags</div>)}
-        if(listOfTags.length > 0 ){
-            return(
-                listOfTags.map((category, index)=><div key={index} className='category-tag'>{category}</div>)
-            )
-        }
-        else{
-            return(<div className='tag'>No category tags</div>)
-        }
-    }
-
     return(
         <main className='book-content'>
             {bookInfo.length<=0 ? null:
             <>
             <BookDetails bookInfo={bookInfo} />
-            <div className='more-info'>
-                <div className='favorite-space'>
-                    <Favorite bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} className='favorite' />
-                    <p>Favorite</p>
-                </div>
-                <div className='category-space'>
-                    <p>categories:</p>
-                    <div className='tags'>
-                        {categoryTags()}
-                    </div>
-                </div>
-                <div className='publish-space'>
-                    <p>published</p>
-                    <span>{bookInfo.volumeInfo.publishedDate ? bookInfo.volumeInfo.publishedDate.split('-')[0]:'Unknown'}</span>
-                </div>
-            </div>
+            <BookInteract bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} />
             <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} />
             </>}
 
