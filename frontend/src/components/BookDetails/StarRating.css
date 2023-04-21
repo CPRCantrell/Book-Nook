@@ -1,3 +1,9 @@
+.star-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .rate-star input[type='radio']{
     display: none;
 }

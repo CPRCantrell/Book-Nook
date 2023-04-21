@@ -6,7 +6,7 @@ const StarRating = ({rating, setRating}) => {
     const [hover, setHover] = useState(null);
 
     return (
-        <div>
+        <div className='star-area'>
             {[...Array(5)].map((star, index) => {
                 const ratingValue = index + 1
 
