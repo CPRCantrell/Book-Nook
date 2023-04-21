@@ -63,7 +63,7 @@ class ReviewSchema(ma.Schema):
     review_text=fields.String(primary_key=True)
     rating=fields.Integer(required=True)
     user_username=fields.String()
-    thumbnail_url=fields.String(required=True)
+    thumbnail_url=fields.String()
     user=ma.Nested(UserSchema, many=False)
     class Meta:
         fields = ("id", "book_id", "review_text", "rating", "user_username","thumbnail_url", "user")
