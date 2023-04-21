@@ -21,10 +21,7 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
                 // addToFavorites(fav)
             }
             else{
-                let noFav={
-                    book_id:bookId,
-                }
-                removeFromFavorites(noFav)
+                removeFromFavorites()
             }
         }
         else{
@@ -45,9 +42,9 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className}) => {
         }
     }
 
-    async function removeFromFavorites(noFav){
+    async function removeFromFavorites(){
         try{
-            let results = await axios.delete('http://127.0.0.1:5000/api/book/favorite', noFav,{
+            let results = await axios.delete(`http://127.0.0.1:5000/api/book/favorite/${bookId}`,{
                 headers: {
                     Authorization: auth
                 }

@@ -25,7 +25,7 @@ function App() {
         <Route path="search" element={<SearchPage />} />
         <Route path="profile" element={
           <PrivateRoute>
-          <ProfilePage />
+            <ProfilePage />
           </PrivateRoute>
         } />
         <Route path='detail/:bookId' element={<BookDetailPage />} />

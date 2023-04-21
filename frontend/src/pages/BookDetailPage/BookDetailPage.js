@@ -17,11 +17,11 @@ const BookDetailPage = () => {
     const auth = "Bearer " + token;
 
     useEffect(() => {
-        getInfoFromAPI(bookId)
-        getBookInfo(bookId)
+        getInfoFromAPI()
+        getBookInfo()
     }, []);
 
-    async function getInfoFromAPI(id){
+    async function getInfoFromAPI(){
         try{
             let response = await axios.get(`http://127.0.0.1:5000/api/book/info/${bookId}`,{
                 headers:{
@@ -36,7 +36,7 @@ const BookDetailPage = () => {
         }
     }
 
-    async function getBookInfo(id){
+    async function getBookInfo(){
         try{
             let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
             console.log(response.data)
@@ -51,9 +51,9 @@ const BookDetailPage = () => {
         <main className='book-content'>
             {bookInfo.length<=0 ? null:
             <>
-            <BookDetails bookInfo={bookInfo} />
-            <BookInteract bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} />
-            <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} />
+                <BookDetails bookInfo={bookInfo} />
+                <BookInteract bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} />
+                <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} />
             </>}
 
         </main>
