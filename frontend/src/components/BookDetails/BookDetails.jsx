@@ -10,30 +10,45 @@ const BookDetails = ({bookInfo}) => {
 
         return(defaultCover)
     }
-
-    return (
-        <div className='book'>
-            <div className='main'>
-                <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='img'/>
-                <div className="img-filter"></div>
-                <img src={checkForImg(bookInfo.volumeInfo)} alt='' className='img-effect'/>
+    if(bookInfo.volumeInfo.description){
+        return (
+            <div className='book'>
+                <div className='main'>
+                    <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='img'/>
+                    <div className="img-filter"></div>
+                    <img src={checkForImg(bookInfo.volumeInfo)} alt='' className='img-effect'/>
+                </div>
+                <div className='info'>
+                    <h1 className='title'>{bookInfo.volumeInfo.title}</h1>
+                    <h2 className='author'>{'By: '}
+                        {bookInfo.volumeInfo.authors.map((author, index, authorsArray) => {
+                            if(index !== authorsArray.length - 1){
+                                return(`${author} & `)
+                            }
+                            else{
+                                return(author)
+                            }
+                        })}
+                    </h2>
+                    <p className='discription' dangerouslySetInnerHTML={{ __html: bookInfo.volumeInfo.description }} />
+                </div>
             </div>
-            <div className='info'>
-                <h1 className='title'>{bookInfo.volumeInfo.title}</h1>
-                <h2 className='author'>{'By: '}
-                    {bookInfo.volumeInfo.authors.map((author, index, authorsArray) => {
-                        if(index !== authorsArray.length - 1){
-                            return(`${author} & `)
-                        }
-                        else{
-                            return(author)
-                        }
-                    })}
-                </h2>
-                <p className='discription' dangerouslySetInnerHTML={{ __html: bookInfo.volumeInfo.description }} />
+        );
+    }
+    else{
+        return (
+            <div className='book'>
+                <div className='main'>
+                    <img src={checkForImg(bookInfo.volumeInfo)} alt={`${bookInfo.volumeInfo.title} cover`} className='img'/>
+                    <div className="img-filter"></div>
+                    <img src={checkForImg(bookInfo.volumeInfo)} alt='' className='img-effect'/>
+                </div>
+                <div className='info'>
+                    <h1 className='title'>{bookInfo.volumeInfo.title}</h1>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default BookDetails;
