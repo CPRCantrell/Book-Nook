@@ -1,0 +1,19 @@
+.rate-star{
+
+}
+
+.rate-star input[type='radio']{
+    display: none;
+}
+
+.rate-star span{
+    font-size: 4rem;
+}
+
+.star-on{
+    color: #ffc107 !important;
+}
+
+.star-off{
+    color: #e4e5e9 !important;
+}

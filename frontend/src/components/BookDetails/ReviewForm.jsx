@@ -1,11 +1,12 @@
-import Reac, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import StarRating from './StarRating';
 import axios from "axios";
 import './ReviewForm.css'
 
 const ReviewForm = ({allReviews, setAllReviews, auth, bookId}) => {
 
     const reviewText = useRef()
-    const rating=useRef()
+    const [rating, setRating] = useState(null);
 
     function handleSubmit(event){
         event.preventDefault()
@@ -32,9 +33,15 @@ const ReviewForm = ({allReviews, setAllReviews, auth, bookId}) => {
     }
 
     return (
-        <form onSubmit={e => handleSubmit(e)}>
-            <input type='text' ref={reviewText} />
-            <input type='text' ref={rating}/>
+        <form className='review-form' onSubmit={e => handleSubmit(e)}>
+            <div className={'rev-group text-review'}>
+                <label>Your Review</label>
+                <textarea type='text' ref={reviewText}/>
+            </div>
+            <div className={'rev-group number-review'}>
+                <label>Your Rating:</label>
+                <StarRating rating={rating} setRating={setRating} />
+            </div>
             <button type='submit'>submit review</button>
         </form>
     );
