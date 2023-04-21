@@ -99,3 +99,20 @@ class GetAllBooksWithReviews(Resource):
     def get(self):
         all_books=Reviews.query.all()
         return reviews_schema.dump(all_books),200
+
+class DeleteFavorite(Resource):
+    @jwt_required()
+    def delete(self,book_id):
+
+        user_id = get_jwt_identity()
+
+        # review=Reviews.query.get((book_id,user_id))
+        # db.session.delete(review)
+        # db.session.commit()
+        stmt=(
+            delete(FavoriteBooks).
+            where(and_(FavoriteBooks.book_id==book_id,FavoriteBooks.user_username==user_id))
+        )
+        db.session.execute(stmt)
+        db.session.commit()
+        return '',200
