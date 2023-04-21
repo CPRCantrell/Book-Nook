@@ -20,9 +20,6 @@ class UserReviews(Resource):
     def delete(self):
         user_id = get_jwt_identity()
         book_id = request.form.get('book_id')
-        # review=Reviews.query.get((book_id,user_id))
-        # db.session.delete(review)
-        # db.session.commit()
         stmt=(
             delete(Reviews).
             where(and_(Reviews.book_id==book_id,Reviews.user_username==user_id))
@@ -58,7 +55,7 @@ class UserFavorites(Resource):
         user_favorites = FavoriteBooks.query.filter_by(user_username=user_id)
         return favorite_books_schema.dump(user_favorites), 200
 
-    
+
 
 class GetBookInfo(Resource):
     def get(self,book_id):
