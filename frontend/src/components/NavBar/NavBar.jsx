@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { useNavigate, NavLink, Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import homeIcon from '../../Assests/home.svg'
 import searchIcon from '../../Assests/search-nav.svg'
@@ -8,20 +8,18 @@ import categoryIcon from '../../Assests/category.svg'
 import libraryIcon from '../../Assests/library.svg'
 import supriseIcon from '../../Assests/suprise.svg'
 import profileDefault from '../../Assests/profile-default.jpg'
-import auth from '../../hooks/useAuth'
 import "./NavBar.css";
 
 const Navbar = () => {
 
   const { logoutUser, user } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   return (
     <div className="nav-bar">
       {user?
       <div className="profile-space">
         <button onClick={logoutUser} className="logout">Logout</button>
-        <Link to="/profile" className={"link profile"}>
+        <Link to="/profile" className={"profile"}>
           <img src={profileDefault} alt="Profile" />
           <p>{user.username}</p>
         </Link>

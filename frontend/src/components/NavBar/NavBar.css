@@ -90,12 +90,20 @@
   gap: 10px;
   height: 100%;
   align-items: center;
-  padding-left: 50px;
+  justify-content: center;
 }
 
 .profile p{
   color: var(--text-light-color);
   font-size: var(--lg-text);
+}
+
+.profile:hover img{
+  outline: solid 6px black;
+}
+
+.profile:hover p{
+  text-shadow: 6px 6px 6px black;
 }
 
 .nav-button{
