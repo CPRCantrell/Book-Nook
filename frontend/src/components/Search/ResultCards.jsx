@@ -12,7 +12,7 @@ const ResultCards = ({bookResults}) => {
         return(defaultCover)
     }
     if(bookResults===undefined){
-        return (<div>No Results Found!</div>)
+        return (<div className='no-results'>No Results Found!</div>)
     }
     else{
         return (

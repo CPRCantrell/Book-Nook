@@ -17,6 +17,17 @@
     column-gap: 5%;
 }
 
+.no-results{
+    width: 75%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--xlg-text);
+    color: var(--text-light-color);
+    padding-top: 10rem;
+}
+
 .card{
     position: relative;
     background-color: var(--dark-background-color);
