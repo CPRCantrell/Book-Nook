@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
-import StarRating from './StarRating';
+import StarRating from "../MultiUse/StarRating";
 import axios from "axios";
 import './ReviewForm.css'
 
-const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo}) => {
+const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo, close, reviewSubmited}) => {
 
     const reviewText = useRef()
     const [rating, setRating] = useState(null);
@@ -11,12 +11,14 @@ const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo}) => {
     function handleSubmit(event){
         event.preventDefault()
         let review={
-            book_id:bookId,
-            review_text:reviewText.current.value,
-            rating:rating,
-            thumbnail_url:bookInfo.volumeInfo.thumbnail
+            book_id: bookId,
+            review_text: reviewText.current.value,
+            rating: rating,
+            thumbnail_url: bookInfo.volumeInfo.thumbnail
         }
         submit(review)
+        reviewSubmited(true)
+        close(false)
     }
 
     async function submit(review){

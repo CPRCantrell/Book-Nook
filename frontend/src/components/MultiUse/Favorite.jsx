@@ -63,7 +63,7 @@ const Favorite = ({bookInfo, auth, isFavorited, bookId, className, user}) => {
 
     function notLogged(){
         return(
-            <Link to='/login' className='link'>
+            <Link to='/login'>
                 <img src={NotFavoriteIcon} alt='Favorite' className={`heart empty ${className}`} />
             </Link>
         )

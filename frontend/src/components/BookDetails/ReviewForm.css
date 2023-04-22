@@ -7,6 +7,7 @@
     background-color: var(--nav-background-color);
     padding-block: 2rem;
     padding-inline: 4rem;
+    box-shadow: inset 0 -6px 4px black;
 }
 
 .rev-group{

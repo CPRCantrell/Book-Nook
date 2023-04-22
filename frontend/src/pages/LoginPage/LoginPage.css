@@ -2,12 +2,16 @@
   color: red;
 }
 
+.login-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .form{
   background-color: var(--dark-background-color);
   width: 50%;
   height: 50%;
-  margin: auto;
-  margin-top: 300px;
   display: grid;
   color: var(--text-light-color);
   font-size: var(--xlg-text);

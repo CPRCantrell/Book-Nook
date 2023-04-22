@@ -19,7 +19,7 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <main>
+    <main className="login-content">
       <form className="form" onSubmit={handleSubmit}>
         <label>Username:{" "}</label>
         <input

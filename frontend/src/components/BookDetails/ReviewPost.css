@@ -1,0 +1,48 @@
+.review-card{
+    margin-inline: 6rem;
+    padding-block: 2rem;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    row-gap: 2rem;
+}
+
+.user-info{
+    display: flex;
+    gap:2rem;
+    align-items: center;
+}
+
+.user-info img{
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.review-rating{
+    align-items: center;
+}
+
+.post-stars{
+    font-size: 3rem !important;
+}
+
+.review-text{
+    grid-column: 1 / span 2;
+}
+
+.edit{
+    border: var(--border-effect);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    opacity: 50%;
+}
+
+.edit:hover{
+    opacity: 1;
+}
+
+.edit img{
+    filter: invert(100%);
+    height: var(--sm-text);
+}

@@ -15,6 +15,8 @@ const BookDetailPage = () => {
     const [customBookInfo, setCustomBookInfo] = useState([]);
     const [user, token] = useAuth()
     const auth = "Bearer " + token;
+    var username
+    try{username = user.username}catch{username = '-1_no_user_name_given'}
 
     useEffect(() => {
         getInfoFromAPI()
@@ -55,7 +57,7 @@ const BookDetailPage = () => {
             <>
             <BookDetails bookInfo={bookInfo} />
             <BookInteract bookInfo={bookInfo} auth={auth} isFavorited={customBookInfo.favorited} bookId={bookId} />
-            <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} bookInfo={bookInfo} />
+            <Reviews auth={auth} bookId={bookId} allRev={customBookInfo.reviews} bookInfo={bookInfo} user={username}/>
             </>}
 
         </main>

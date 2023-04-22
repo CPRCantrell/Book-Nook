@@ -17,18 +17,6 @@ class UserReviews(Resource):
         return review_schema.dump(new_review), 201
 
     @jwt_required()
-    def delete(self):
-        user_id = get_jwt_identity()
-        book_id = request.form.get('book_id')
-        stmt=(
-            delete(Reviews).
-            where(and_(Reviews.book_id==book_id,Reviews.user_username==user_id))
-        )
-        db.session.execute(stmt)
-        db.session.commit()
-        return '',200
-
-    @jwt_required()
     def put(self):
         user_id = get_jwt_identity()
         form_data = request.get_json()
@@ -100,15 +88,22 @@ class GetAllBooksWithReviews(Resource):
 class DeleteFavorite(Resource):
     @jwt_required()
     def delete(self,book_id):
-
         user_id = get_jwt_identity()
-
-        # review=Reviews.query.get((book_id,user_id))
-        # db.session.delete(review)
-        # db.session.commit()
         stmt=(
             delete(FavoriteBooks).
             where(and_(FavoriteBooks.book_id==book_id,FavoriteBooks.user_username==user_id))
+        )
+        db.session.execute(stmt)
+        db.session.commit()
+        return '',200
+
+class DeleteReview(Resource):
+    @jwt_required()
+    def delete(self,book_id):
+        user_id = get_jwt_identity()
+        stmt=(
+            delete(Reviews).
+            where(and_(Reviews.book_id==book_id,Reviews.user_username==user_id))
         )
         db.session.execute(stmt)
         db.session.commit()

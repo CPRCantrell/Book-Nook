@@ -20,7 +20,7 @@ const BookInteract = ({bookInfo, auth, isFavorited, bookId}) => {
     return (
         <div className='more-info'>
             <div className='favorite-space'>
-                <Favorite bookInfo={bookInfo} auth={auth} isFavorited={isFavorited} bookId={bookId} className='favorite' />
+                <Favorite bookInfo={bookInfo} auth={auth} isFavorited={isFavorited} bookId={bookId}/>
                 <p>Favorite</p>
             </div>
             <div className='category-space'>

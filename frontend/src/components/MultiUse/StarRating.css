@@ -4,6 +4,10 @@
     justify-content: space-evenly;
 }
 
+.pointer:hover{
+    cursor: pointer;
+}
+
 .rate-star input[type='radio']{
     display: none;
 }

@@ -2,7 +2,8 @@
     width: 75%;
     margin-inline: auto;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    gap: 1%;
+    grid-template-columns: 20% 58% 20%;
     color: var(--text-light-color);
     margin-top: 25px;
 }
