@@ -14,7 +14,7 @@ const ReviewForm = ({allReviews, setAllReviews, auth, bookId, bookInfo, close, r
             book_id: bookId,
             review_text: reviewText.current.value,
             rating: rating,
-            thumbnail_url: bookInfo.volumeInfo.thumbnail
+            thumbnail_url: bookInfo.volumeInfo.imageLinks.thumbnail || null
         }
         submit(review)
         reviewSubmited(true)

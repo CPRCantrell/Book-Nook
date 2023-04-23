@@ -46,7 +46,7 @@ const EditForm = ({text, startRating, auth, bookId, close}) => {
 
     async function deleteReview(){
         try{
-            let results = await axios.delete(`http://127.0.0.1:5000//api/book/deleteReview/${bookId}`,{
+            await axios.delete(`http://127.0.0.1:5000//api/book/deleteReview/${bookId}`,{
                 headers: {
                     Authorization: auth
                 }

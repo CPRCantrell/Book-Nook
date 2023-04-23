@@ -26,6 +26,13 @@ class UserReviews(Resource):
         db.session.commit()
         return review_schema.dump(review),200
 
+    @jwt_required()
+    def get(self):
+        user_id = get_jwt_identity()
+        user_reviews = Reviews.query.filter_by(user_username=user_id)
+        return reviews_schema.dump(user_reviews)
+
+
 class UserFavorites(Resource):
     @jwt_required()
     def post(self):
@@ -82,7 +89,7 @@ class GetBookInfo(Resource):
 
 class GetAllBooksWithReviews(Resource):
     def get(self):
-        all_books=Reviews.query.all()
+        all_books = Reviews.query.all()
         return reviews_schema.dump(all_books),200
 
 class DeleteFavorite(Resource):

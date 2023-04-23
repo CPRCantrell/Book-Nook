@@ -5,12 +5,11 @@ const Collapsible = ({show,children,horizontal=false}) => {
 
     const collapsRef = useRef()
 
-
     return (
         <div
         className='collaps-control'
         ref={collapsRef}
-        style={{maxHeight: !show ? 0 : collapsRef.current.scrollHeight + 'px'}}>
+        style={!horizontal ? {maxHeight: !show ? 0 : collapsRef.current.scrollHeight + 'px'} : {maxWidth: !show ? 0 : collapsRef.current.scrollWidth + 'px'}}>
             {children}
         </div>
     );

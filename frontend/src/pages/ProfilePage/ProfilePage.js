@@ -13,7 +13,7 @@ const SearchPage = () => {
         <main className='profile-content'>
             <DisplayUser user={user.username}/>
             <FavoriteBooks auth={auth}/>
-            <PersonalReviewes />
+            <PersonalReviewes auth={auth}/>
         </main>
     )
 }

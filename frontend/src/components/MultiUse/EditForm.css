@@ -12,6 +12,8 @@
 }
 
 .edit-group{
+    color: var(--text-light-color);
+    font-size: var(--lg-text);
     display: grid;
     grid-template-rows: 25% 75%;
 }
@@ -31,6 +33,7 @@
 .edit-form button{
     padding: .5rem;
     background-color: transparent;
+    color: var(--text-light-color);
     border: var(--border-effect);
     border-radius: 5px;
 }
@@ -43,6 +46,7 @@
     display: grid;
     grid-template-columns: 49% 49%;
     gap: 2%;
+    font-size: var(--lg-text);
 }
 
 .confirmation-modal{
@@ -72,10 +76,11 @@
 
 .message *{
     color: black !important;
+    font-size: var(--sm-text) !important;
 }
 
 .message p{
-    font-size: var(--sm-text) !important;
+    font-size: var(--xsm-text) !important;
 }
 
 .message .response button{
@@ -83,6 +88,7 @@
     width: 7.5rem;
     margin-inline: 1rem;
     opacity: 50%;
+    font-size: var(--xsm-text) !important;
 }
 
 .message .response button:hover{
