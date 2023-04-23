@@ -29,7 +29,7 @@ const RegisterPage = () => {
                 name="username"
                 value={formData.username}
                 onChange={handleInputChange}
-                autocomplete="off"
+                autoComplete="off"
                 required="required"></input>
               <span>Username</span>
               <i></i>
@@ -40,7 +40,7 @@ const RegisterPage = () => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                autocomplete="off"
+                autoComplete="off"
                 required="required"/>
               <span>first Name</span>
               <i></i>
@@ -51,7 +51,7 @@ const RegisterPage = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                autocomplete="off"
+                autoComplete="off"
                 required="required"/>
               <span>Last Name</span>
               <i></i>
@@ -62,7 +62,7 @@ const RegisterPage = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                autocomplete="off"
+                autoComplete="off"
                 required="required"/>
               <span>Email</span>
               <i></i>
@@ -73,7 +73,7 @@ const RegisterPage = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                autocomplete="off"
+                autoComplete="off"
                 required="required"/>
               <span>Password</span>
               <i></i>

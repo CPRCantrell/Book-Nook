@@ -34,7 +34,7 @@ const LoginPage = () => {
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              autocomplete="off"
+              autoComplete="off"
               required="required"/>
             <span>Username</span>
             <i></i>
@@ -45,7 +45,7 @@ const LoginPage = () => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              autocomplete="off"
+              autoComplete="off"
               required="required"/>
             <span>Password</span>
             <i></i>
