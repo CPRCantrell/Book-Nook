@@ -47,6 +47,6 @@ html {
 }
 
 main{
-  margin-left: 350px;
+  padding-left: 350px;
   min-height: 100vh;
 }

@@ -20,27 +20,38 @@ const LoginPage = () => {
 
   return (
     <main className="login-content">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>Username:{" "}</label>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-        />
-        <label>Password:{" "}</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
-        {isServerError ? (
-          <p className="error">Login failed, incorrect credentials!</p>
-        ) : null}
-        <Link to="/register">Click to register!</Link>
-        <button>Login!</button>
-      </form>
+      <div className="form-container">
+        <form className="form" onSubmit={handleSubmit}>
+          <h1>Sign in</h1>
+          <div className="input-box">
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+              autocomplete="off"
+              required="required"/>
+            <span>Username</span>
+            <i></i>
+          </div>
+          <div className="input-box">
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              autocomplete="off"
+              required="required"/>
+            <span>Password</span>
+            <i></i>
+          </div>
+          <div className="links">
+            <a href="#">Fogot Password</a>
+            <Link to='/register' className="sign-up">Signup</Link>
+          </div>
+          <input type="submit" value='Login'/>
+        </form>
+      </div>
     </main>
   );
 };
