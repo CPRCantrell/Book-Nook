@@ -1,0 +1,31 @@
+.new-board{
+    background-color: var(--dark-background-color);
+    border-radius: 10px;
+    width: 75%;
+    margin-inline: auto;
+    margin-top: 25px;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.new-board h2{
+    color: var(--text-light-color);
+    font-size: var(--xlg-text);
+    padding-bottom: 2rem;
+    border-bottom: var(--border-effect);
+    margin-bottom: 10rem;
+}
+
+.new-display{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -12rem;
+}
+
+.new-display .new-card{
+    justify-self: center;
+}

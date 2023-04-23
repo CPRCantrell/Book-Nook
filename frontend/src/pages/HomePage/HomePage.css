@@ -1,0 +1,42 @@
+.home-content{
+    padding-block: 25px;
+}
+
+.home-content h1{
+    width: 75%;
+    text-align: center;
+    margin-inline: auto;
+    font-size: 5rem;
+    color: var(--text-light-color);
+}
+
+.book-logo{
+    position: relative;
+    top: -1.5rem;
+}
+
+.book-logo::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -.5rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    background-color: aqua;
+}
+
+.nook-logo{
+    position: relative;
+}
+
+.nook-logo::before{
+    content: '';
+    position: absolute;
+    left: 1px;
+    right: -1px;
+    top: -.5rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    background-color: aqua;
+}
