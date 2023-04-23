@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
         setIsServerError(false);
         navigate("/home");
       } else {
-        navigate("/register");
+        setIsServerError(true);
       }
     } catch (error) {
       console.log(error.response.data);
