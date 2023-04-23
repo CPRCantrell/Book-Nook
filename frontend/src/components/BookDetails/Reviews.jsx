@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import ReviewForm from './ReviewForm';
 import Collapsible from '../MultiUse/Collapsible';
@@ -11,7 +11,16 @@ const Reviews = ({auth, bookId, allRev, bookInfo, user}) => {
 
     const [addReviewForm ,setAddReviewForm]=useState(false)
     const [allReviews,setAllReviews]=useState(allRev)
-    const [existReview, setExistReview] = useState((allRev.map((rev) => {if(rev.user_username === user){return true}}))[0])
+    const [existReview, setExistReview] = useState(false)
+
+    useEffect(() => {
+        for(let rev in allRev){
+            let userRev = allRev[rev].user_username
+            if(userRev === user){
+                setExistReview(true)
+            }
+        }
+    }, []);
 
     return (
         <div className='reviews'>

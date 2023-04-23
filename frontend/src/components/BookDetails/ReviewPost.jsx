@@ -24,8 +24,8 @@ const ReviewPosts = ({user, existReview, allReviews, auth, bookId}) => {
         <>
             {allReviews.map((rev, index) => {
                 return(
-                    <>
-                        <div className="review-card" key={index}>
+                    <div key={index}>
+                        <div className="review-card" >
                             <div className="user-info">
                                 <img src={defaultAvatar} alt={`${rev.user_username} profile`} />
                                 <h4>{rev.user_username}</h4>
@@ -54,7 +54,7 @@ const ReviewPosts = ({user, existReview, allReviews, auth, bookId}) => {
                                 </>)
                             :null}
                         </>
-                    </>
+                    </div>
                 )
             })}
         </>

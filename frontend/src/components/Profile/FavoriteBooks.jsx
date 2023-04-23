@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import Favorite from '../MultiUse/Favorite'
 import axios from 'axios';
 import './FavoriteBooks.css'
 
@@ -26,20 +27,24 @@ const FavoriteBooks = ({auth}) => {
     }
 
     return (
-        <div>
-            {favoritebooks.length > 0 ?
-            favoritebooks.map((book, index) => {
-                return(
-                    <Link key={index} to={`/detail/${book.book_id}`}>
-                        <div className='favorite-card'>
-                            <img src={book.thumbnail_url} alt={`${book.title}`} />
-                            <h2>{book.title}</h2>
-                            <button>{'<3'}</button>
+        <div className='favorite-books'>
+            <h2>My Favorite Books</h2>
+            <div className='cards-display'>
+                {favoritebooks.length > 0 ?
+                favoritebooks.map((book, index) => {
+                    return(
+                        <div key={index} className='favorite-card'>
+                            <Link to={`/detail/${book.book_id}`}>
+                                <img src={book.thumbnail_url} alt={`${book.title}`} />
+                            </Link>
+                            <div className='heart-icon'>
+                                <Favorite bookInfo={{volumeInfo:{title:book.title, imageLinks:{thumbnail:book.thumbnail_url}}}} auth={auth} isFavorited={true} bookId={book.book_id} className='heart-button'/>
+                            </div>
                         </div>
-                    </Link>
-                )
-            })
-            :null}
+                    )
+                })
+                :null}
+            </div>
         </div>
     );
 }

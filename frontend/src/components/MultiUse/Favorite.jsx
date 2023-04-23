@@ -5,7 +5,7 @@ import NotFavoriteIcon from '../../Assests/not-favorite.svg'
 import axios from 'axios';
 import './Favorite.css'
 
-const Favorite = ({bookInfo, auth, isFavorited, bookId, className, user}) => {
+const Favorite = ({bookInfo, auth, isFavorited, bookId, className=''}) => {
 
     const firstLoad=useRef(true)
     const [favorite, setFavorite] = useState(isFavorited)

@@ -1,12 +1,37 @@
-.favorite-card{
-    background-color: var(--dark-background-color);
-    display: grid;
-    gap: 25px;
-    padding: 2rem 4rem;
-    margin: auto;
-    color: var(--text-light-color);
-    width: 10%;
+.favorite-books{
+    width: 75%;
+    margin-inline: auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favorite-books h2{
     font-size: var(--xlg-text);
-    justify-content: center;
-    text-align: center;
+    color: var(--text-light-color);
+    padding-bottom: 25px;
+    border-bottom: var(--border-effect);
+    align-self: flex-start;
+    width: 75%;
+}
+
+.cards-display{
+    width: 100%;
+    margin-top: 25px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(5, auto);
+    gap: 4rem;
+}
+
+.favorite-card{
+    position: relative;
+    justify-self: center;
+}
+
+.favorite-card .heart-icon{
+    position: absolute;
+    top: calc(50% - 3rem);
+    left: -3rem;
 }

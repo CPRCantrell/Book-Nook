@@ -1,5 +1,8 @@
 import FavoriteBooks from '../../components/Profile/FavoriteBooks'
+import DisplayUser from '../../components/Profile/DisplayUser';
+import PersonalReviewes from '../../components/Profile/PersonalReviews';
 import useAuth from '../../hooks/useAuth';
+import './ProfilePage.css'
 
 const SearchPage = () => {
 
@@ -7,8 +10,10 @@ const SearchPage = () => {
     const auth = "Bearer " + token;
 
     return(
-        <main>
+        <main className='profile-content'>
+            <DisplayUser user={user.username}/>
             <FavoriteBooks auth={auth}/>
+            <PersonalReviewes />
         </main>
     )
 }

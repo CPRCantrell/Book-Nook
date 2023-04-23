@@ -55,6 +55,10 @@ input:not(:placeholder-shown){
     border-bottom: var(--border-effect);
 }
 
+.search-bar input:hover{
+    cursor: text;
+}
+
 .search-area button:hover img{
     animation: search infinite ease-in-out alternate 500ms ;
     cursor: pointer;

@@ -1,0 +1,46 @@
+.display-user{
+    width: 80%;
+    margin-left: 7.5%;
+    color: var(--text-light-color);
+}
+
+.display-user .username{
+    font-size: var(--xlg-text);
+    margin-left: 32rem;
+    margin-bottom: 2rem;
+}
+
+.display-user .profile-box{
+    position: relative;
+    background-color: var(--nav-background-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    --acount-for-Image: 15rem;
+    margin-left: var(--acount-for-Image);
+    padding-left: var(--acount-for-Image);
+    height: var(--acount-for-Image);
+}
+
+.display-user .profile-box img{
+    border-radius: 50%;
+    width: 30rem;
+    position: absolute;
+    --move-img: calc(var(--acount-for-Image)*-1);
+    left: var(--move-img);
+    top: var(--move-img);
+}
+
+.display-user .profile-box .profile-bio{
+    margin-left: 1rem;
+    padding: 1rem 1rem;
+    border-left: var(--border-effect);
+}
+
+.display-user .profile-box .profile-bio h2{
+    font-size: var(--lg-text);
+}
+
+.display-user .profile-box .profile-bio p{
+    font-size: var(--xsm-text);
+}

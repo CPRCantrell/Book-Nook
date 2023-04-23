@@ -12,14 +12,14 @@ const ResultCards = ({bookResults}) => {
         return(defaultCover)
     }
     if(bookResults===undefined){
-        return (<div className='no-results'>No Results Found!</div>)
+        return (<div className='no-results'>No Results Found</div>)
     }
     else{
         return (
             <div className='results'>
                 {bookResults.map((book, index) => {
                     return(
-                        <Link key={index} to={`/detail/${book.id}`}>
+                        <Link key={index} to={`/detail/${book.id}`} className='result-card'>
                             <div className='card'>
                                 <img src={checkForImg(book.volumeInfo)} alt={`${book.volumeInfo.title} cover`} className='thumbnail'/>
                                 <div className='rating'>
