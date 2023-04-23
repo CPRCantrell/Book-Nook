@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import './RegisterPage.css'
@@ -19,9 +20,9 @@ const RegisterPage = () => {
 
   return (
     <main className="register-content">
-      <div className="form-container">
-        <form className="form" onSubmit={handleSubmit}>
-          <h1>Sign in</h1>
+      <div className="reg-form-container">
+        <form className="reg-form" onSubmit={handleSubmit}>
+          <h1>Register</h1>
             <div className="input-box">
               <input
                 type="text"
@@ -33,34 +34,52 @@ const RegisterPage = () => {
               <span>Username</span>
               <i></i>
             </div>
-          <label>
-            Last Name:{" "}
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Email:{" "}
-            <input
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Password:{" "}
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-            />
-          </label>
-          <button>Register!</button>
+            <div className="input-box">
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                autocomplete="off"
+                required="required"/>
+              <span>first Name</span>
+              <i></i>
+            </div>
+            <div className="input-box">
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                autocomplete="off"
+                required="required"/>
+              <span>Last Name</span>
+              <i></i>
+            </div>
+            <div className="input-box">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                autocomplete="off"
+                required="required"/>
+              <span>Email</span>
+              <i></i>
+            </div>
+            <div className="input-box">
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                autocomplete="off"
+                required="required"/>
+              <span>Password</span>
+              <i></i>
+            </div>
+            <Link to='/register' className="sign-in">Sign-in</Link>
+          <input type="submit" value='Create Account'/>
         </form>
       </div>
     </main>

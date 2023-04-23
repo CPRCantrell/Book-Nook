@@ -20,8 +20,13 @@ const LoginPage = () => {
 
   return (
     <main className="login-content">
-      <div className="form-container">
+      <div className={isServerError? "form-container-error":"form-container"}>
         <form className="form" onSubmit={handleSubmit}>
+          <>
+            {isServerError?
+              <p className="alert error">Username or Password was incorrect</p>
+            :null}
+          </>
           <h1>Sign in</h1>
           <div className="input-box">
             <input

@@ -8,6 +8,7 @@
   justify-content: center;
 }
 
+.form-container-error,
 .form-container{
   --form-width: 42rem;
   --form-height: 48rem;
@@ -20,28 +21,53 @@
 }
 
 .form-container::before{
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+}
+
+.form-container::after{
+  background: linear-gradient(180deg, transparent, #45f3ff, #45f3ff);
+}
+
+.form-container-error::before,
+.form-container::before{
   content: '';
   position: absolute;
   top: -50%;
   left: -50%;
   width: var(--form-width);
   height: var(--form-height);
-  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
   transform-origin: bottom right;
   animation: spin 6s linear infinite;
 }
 
+.form-container-error::after,
 .form-container::after{
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
+  bottom: -50%;
+  right: -50%;
   width: var(--form-width);
   height: var(--form-height);
-  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
-  transform-origin: bottom right;
+  transform-origin: top left;
   animation: spin 6s linear infinite;
-  animation-delay: 3s;
+}
+
+.form-container-error::before{
+  background: linear-gradient(0deg, transparent, red, red);
+}
+
+.form-container-error::after{
+  background: linear-gradient(180deg, transparent, red, red);
+}
+
+
+.alert{
+  position: absolute;
+  font-size: var(--xsm-text);
+  top: 3rem;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 @keyframes spin{
@@ -164,3 +190,4 @@ input[value='Login']:hover{
 input[value='Login']:active{
   opacity: 80%;
 }
+

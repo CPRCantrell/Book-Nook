@@ -2,4 +2,95 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
+
+.reg-form-container{
+    --form-width: 42rem;
+    --form-height: 62rem;
+    position: relative;
+    width: var(--form-width);
+    height: var(--form-height);
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.reg-form-container::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: var(--form-width);
+    height: var(--form-height);
+    background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: spin 6s linear infinite;
+}
+
+.reg-form-container::after{
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -50%;
+    width: var(--form-width);
+    height: var(--form-height);
+    background: linear-gradient(180deg, transparent, #45f3ff, #45f3ff);
+    transform-origin: top left;
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.reg-form{
+    position: absolute;
+    inset:2px;
+    border-radius: 8px;
+    background-color: #28292d;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 5rem;
+}
+
+.reg-form h1{
+    font-size: var(--xlg-text);
+    color: #45f3ff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+input[value='Create Account']{
+    border: solid 2px #45f3ff;
+    outline: none;
+    background-color: transparent;
+    padding: 1rem 2.5rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: var(--lg-text);
+    color: #45f3ff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 250ms ease-in;
+}
+
+input[value='Create Account']:hover{
+    color:#28292d;
+    background-color: #45f3ff;
+}
+
+input[value='Create Account']:active{
+    opacity: 80%;
+}
+
+.sign-in{
+    font-size: var(--xsm-text);
+    margin: 1rem 0;
+    text-decoration: none;
+    color: #45f3ff;
+    width: 100%;
+    text-align: right;
+}

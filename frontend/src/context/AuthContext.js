@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       if (response.status === 201) {
         console.log("Successful registration! Log in to access token");
         setIsServerError(false);
-        navigate("/login");
+        loginUser({username:finalData.username, password:finalData.password});
       } else {
         navigate("/register");
       }
@@ -63,7 +63,6 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log(error.response.data);
       setIsServerError(true);
-      navigate("/register");
     }
   };
 
